@@ -24,15 +24,16 @@
 
 - ミステリ小説: 麻耶雄嵩, 米澤穂信
 - 漫画: 志村貴子, 鬼頭莫宏, 田村由美, 夜麻みゆき, 三原順
+- 最近よく使うオンラインShop
+  - [戦極MCBATTLE On Line Shop](http://sengokumc.thebase.in/)
+  - [blazz works](https://www.blazz.jp/)
 - サッカー観戦
   - 国内: 川崎フロンターレ, 海外: バイエルンミュンヘン
-- Steam
-  - fallout 4 VRをVIVEでプレイ中
+- Steam(fallout 4 VRをプレイ中)
   - PC: AMD Ryzen7 + GeForce GTX 1080 + X470 Gaming Proで自作
-- 電子ピアノ(下手の横好き......)
-- 旅行
-  - 学生時代Giantのロードバイクで日本一周しました。自分探し3級
-  - 海外旅行歴は下ページ
+- ピアノ(下手の横好き......)
+- 学生時代Giantのロードバイクで日本一周しました。自分探し3級。
+- 海外旅行歴は下ページ
 
 ------
 
