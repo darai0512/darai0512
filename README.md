@@ -1,23 +1,23 @@
 <!-- .slide: data-background="img/profile.jpeg""-->
 <!-- .slide: data-background-opacity="0.5"-->
-### console.table( :laughing:darai0512 :speech_balloon:)
+:laughing:**Daiki Arai** :speech_balloon:
 
-|(index)|Values|
+|||
 |---|---|
-|name|**Daiki Arai**|
-|belongs to|[![PAY.JP](./img/payjp.png)](https://pay.jp/)|
-|from|Yahoo! JAPAN|
-|pre-work|DMP(広告データ統合分析プラットフォーム)開発|
-|| :arrow_right:20億PV(=1TB)/日のログをHive->Solr,ファネル分析|
-||Node.js全社サポート|
-|PC|AMD Ryzen7 :heavy_plus_sign: GeForce GTX 1080 :heavy_plus_sign: X470 Gaming Pro|
-|...and more|右ページ or 下ページ|
+|from|Tokyo|
+|belongs to|[PAY.JP](https://pay.jp/)|
+|side jobs|カケコム (株式会社ST Booking) |
+||MeetsMore (株式会社ミツモア) |
+|history|ヤフーにてDMP(広告データ分析プラットフォーム)開発|
+|| :arrow_right:20億PV/日のログ解析,ファネル分析,CTR/CVRコンサル|
+||また数千人のエンジニアに対する技術サポートも兼務|
+||PAY.JPへ転職後は決済システム開発(FEリーダー)|
+|...more|右ページ or 下ページ|
 
 <a href="https://mobile.twitter.com/darai_0512" target="_blank"><img src="./img/Twitter_Social_Icon_Square_Color.png" width="80" height="80"/></a>
 <a href="https://facebook.com/daiki.arai.16" target="_blank"><img src="./img/flogo_RGB_HEX-114.png" width="80" height="80"/></a>
 <a href="https://github.com/darai0512" target="_blank"><img src="./img/GitHub-Mark-120px-plus.png" width="80" height="80"/></a>
 <a href="https://qiita.com/darai0512" target="_blank"><img src="./img/qiita-favicon.png" width="80" height="80"/></a>
-<img src="./img/payid.jpeg" width="80" height="80"/></a>
 
 ------
 
@@ -26,7 +26,7 @@
 <!-- .slide: data-background-opacity="0.7"-->
 <!-- .slide: data-background-size="contain"-->
 <!-- .slide: style="font-size: 22px;text-align: left;"-->
-### Travel History
+### Travel
 
 - アメリカ :triumph:
 - カナダ :tired_face:
@@ -54,14 +54,17 @@
 <!-- .slide: data-background="img/nodejs.svg"-->
 <!-- .slide: data-background-opacity="0.3"-->
 <!-- .slide: data-background-size="contain"-->
-### Programming
+### console.table(Programming)
 
-|||
+|(index)|Values|
 |---|---|
-|editor|Vim([.vimrc](https://github.com/darai0512/dotfiles/blob/master/.vimrc)), IntelliJ(でもIdeaVim)|
+|skill||
+|+ FrontEnd|HTML/CSS/JS(React,Vue,TypeScript...)/SEO|
+|+ BackEnd|Node.js/Python/PHP/Perl/Java/shell/Erlang|
+|+ Mobile|ReactNative(iOS,Android)|
+|+ Infra|AWS/Docker/nginx/apache/Hadoop(Hive/Spark...)|
 |contributions|[nodejs/node](https://github.com/nodejs/node/pulls?q=is%3Apr+author%3Adarai0512+is%3Aclosed)|
-|meetup|Node学園, html5conf, JS系, beam-lang.tokyo(Erlang)|
-|speak|[Diagnose your Node.js app@Node学園祭2018](https://darai0512.github.io/nodefest2018/#/)|
-||[Diagnose your Node.js app(intro)@meguro.es #17](https://darai0512.github.io/talks/meguroes_20181004/#/)|
-||[.mjs + HTTP/2 = Universal JS@Gotanda.js #9](https://darai0512.github.io/talks/gotandajs_20171006/#/)|
-||[Slack CodeGolf@Node学園 25時限目](https://speakerdeck.com/darai0512/slack-codegolf)|
+|speak|[Node学園祭2018](https://darai0512.github.io/nodefest2018/#/) (数百人規模)|
+||[meguro.es #17](https://darai0512.github.io/talks/meguroes_20181004/#/)|
+||[Gotanda.js #9](https://darai0512.github.io/talks/gotandajs_20171006/#/)|
+||[Node学園 25時限目](https://speakerdeck.com/darai0512/slack-codegolf)|
