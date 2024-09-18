@@ -1,26 +1,45 @@
 <!-- .slide: data-background="img/profile.jpeg""-->
 <!-- .slide: data-background-opacity="0.5"-->
-:laughing:**Daiki Arai** :speech_balloon:
+:laughing: console.table(**darai**) :speech_balloon:
 
-|||
+|(index)|Values|
 |---|---|
 |from|Tokyo|
 |belongs to|[PAY.JP](https://pay.jp/)|
-|side jobs|カケコム (株式会社ST Booking) |
-||MeetsMore (株式会社ミツモア) |
-|history|ヤフーにてDMP(広告データ分析プラットフォーム)開発|
-|| :arrow_right:20億PV/日のログ解析,ファネル分析,CTR/CVRコンサル|
-||また数千人のエンジニアに対する技術サポートも兼務|
-||PAY.JPへ転職後は決済システム開発(FEリーダー)|
-|...more|右ページ or 下ページ|
+|side job|[CoWorker](http://coworker.co.jp/)|
+|history|Yahoo!Japan (正社員)|
+||[カケコム](https://www.kakekomu.com/) (旧: 株式会社ST Booking, 副業) |
+||[MeetsMore](https://meetsmore.com/) (株式会社ミツモア, 副業) |
+||[Nizitsuku](https://nztk.jp/) (リリースまで)|
+||Smoothy (サ終)|
 
 <a href="https://mobile.twitter.com/darai_0512" target="_blank"><img src="./img/Twitter_Social_Icon_Square_Color.png" width="80" height="80"/></a>
 <a href="https://facebook.com/daiki.arai.16" target="_blank"><img src="./img/flogo_RGB_HEX-114.png" width="80" height="80"/></a>
 <a href="https://github.com/darai0512" target="_blank"><img src="./img/GitHub-Mark-120px-plus.png" width="80" height="80"/></a>
 <a href="https://qiita.com/darai0512" target="_blank"><img src="./img/qiita-favicon.png" width="80" height="80"/></a>
 
+<p style="font-size: small;"> :arrow_down: Go to next slide :arrow_down:</p>
+
 ------
 
+<!-- .slide: data-background="img/nodejs.svg"-->
+<!-- .slide: data-background-opacity="0.3"-->
+<!-- .slide: data-background-size="contain"-->
+### console.table(Programming)
+
+|(index)|Values|
+|---|---|
+|skill|JS(Next,Nuxt,TS...)/Node.js/Python/Go/ReactNative/|
+||k8s (EKS)/ecspresso (ECS)/terraform/Hadoop ...|
+|portfolio|ボドゲ: [王への請願](https://to-court-the-king-js.vercel.app/), [AirPoker](https://air-poker.vercel.app/)|
+||決済SDK: [payjp.js](https://pay.jp/docs/payjs), [payjp-go](https://github.com/payjp/payjp-go), ...他各言語|
+|contribution|[nodejs/node](https://github.com/nodejs/node/pulls?q=is%3Apr+author%3Adarai0512+is%3Aclosed) (本体)|
+||[Style-Bert-VITS2](https://github.com/litagin02/Style-Bert-VITS2) (音声合成AI) ...etc|
+|speak|[Node学園祭2018](https://darai0512.github.io/nodefest2018/#/)|
+||[meguro.es #17](https://darai0512.github.io/talks/meguroes_20181004/#/)|
+||[Gotanda.js #9](https://darai0512.github.io/talks/gotandajs_20171006/#/), [Node学園 25時限目](https://speakerdeck.com/darai0512/slack-codegolf) ...etc|
+
+---
 
 <!-- .slide: data-background="img/lifepinner.jpg""-->
 <!-- .slide: data-background-opacity="0.7"-->
@@ -48,23 +67,3 @@
 - トルコ :heart_eyes:
 - 日本 :smile:
   - ロードバイク(Giant)で1周(=自分探し3級)
-
----
-
-<!-- .slide: data-background="img/nodejs.svg"-->
-<!-- .slide: data-background-opacity="0.3"-->
-<!-- .slide: data-background-size="contain"-->
-### console.table(Programming)
-
-|(index)|Values|
-|---|---|
-|skill||
-|+ FrontEnd|HTML/CSS/JS(React,Vue,TypeScript...)/SEO|
-|+ BackEnd|Node.js/Python/PHP/Perl/Java/shell/Erlang|
-|+ Mobile|ReactNative(iOS,Android)|
-|+ Infra|AWS/Docker/nginx/apache/Hadoop(Hive/Spark...)|
-|contributions|[nodejs/node](https://github.com/nodejs/node/pulls?q=is%3Apr+author%3Adarai0512+is%3Aclosed)|
-|speak|[Node学園祭2018](https://darai0512.github.io/nodefest2018/#/) (数百人規模)|
-||[meguro.es #17](https://darai0512.github.io/talks/meguroes_20181004/#/)|
-||[Gotanda.js #9](https://darai0512.github.io/talks/gotandajs_20171006/#/)|
-||[Node学園 25時限目](https://speakerdeck.com/darai0512/slack-codegolf)|
