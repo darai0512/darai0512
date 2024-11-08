@@ -5,13 +5,13 @@
 |(index)|Values|
 |---|---|
 |from|Tokyo|
+|resume|[pdf](/self-intro/resume.pdf)|
 |belongs to|[PAY.JP](https://pay.jp/)|
 |side job|[CoWorker](http://coworker.co.jp/)|
 |history|Yahoo!Japan (正社員)|
 ||[カケコム](https://www.kakekomu.com/) (旧: 株式会社ST Booking, 副業) |
 ||[MeetsMore](https://meetsmore.com/) (株式会社ミツモア, 副業) |
 ||[Nizitsuku](https://nztk.jp/) (リリースまで)|
-||Smoothy (サ終)|
 
 <a href="https://mobile.twitter.com/darai_0512" target="_blank"><img src="./img/Twitter_Social_Icon_Square_Color.png" width="80" height="80"/></a>
 <a href="https://facebook.com/daiki.arai.16" target="_blank"><img src="./img/flogo_RGB_HEX-114.png" width="80" height="80"/></a>

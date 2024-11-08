@@ -3,7 +3,8 @@
   "author": "Daiki Arai",
   "private": true,
   "scripts": {
-    "start": "node ./server.js"
+    "start": "node ./server.js",
+    "build": "md-to-pdf resume.md"
   },
   "dependencies": {
     "emoji-awesome": "0.0.2",
@@ -12,12 +13,9 @@
     "tls-keygen": "^3.6.1"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=22.0.0"
   },
   "devDependencies": {
-    "ctrace": "^1.1.5",
-    "express": "^4.16.4",
-    "llnode": "2.0.0",
-    "node-report": "^2.2.1"
+    "md-to-pdf": "^5.2.4"
   }
 }
