@@ -4,40 +4,21 @@ body_class: markdown-body
 marked_options:
   breaks: true
 css: |-
-  .markdown-body { font-size: 12px; }
+  .markdown-body { font-size: 12px; background-color: rgba(255 255 255 / 0.8); }
   .markdown-body thead { display: none; }
   .page-break { page-break-after: always; }
   .markdown-body pre > code { white-space: pre-wrap; }
+  .markdown-body h1::before { content: '# ';}
+  .markdown-body h2::before { content: '## ';}
+  .markdown-body h3::before { content: '### ';}
 ---
 
-# 基本プロフィール
-
-|||
-|---|---|
-|名前|darai|
-|学歴|慶應義塾 理工学部物理学科 学部卒・電波天文研究|
-|職歴|Yahoo!Japan -> Pay.jp|
-|GitHub| [darai0512](https://github.com/darai0512)|
-|Qiita| [darai0512](https://qiita.com/darai0512)|
-|SpeakerDeck|[darai0512](https://speakerdeck.com/darai0512)|
-|HP| https://darai0512.github.io/self-intro/ |
-
-次ページ以降、具体的なアウトプットを記載
-
-(長いため)アピール点としては、
-
-- Web系の言語はほぼ業務経験があり、特にJS/Pythonは内部実装まで知見がある
-- Yahoo時代はビッグデータETL・システム構築・分析の経験、今はAPI/SDK提供の経験
-- AIはOSSで遊ぶところから始まり、Style-Bert-VITS2の開発関与以来、[DL](https://amzn.asia/d/3ZKEteN)など勉強
-
-<div class="page-break"></div>
-
-# 職歴以外のアウトプット
+# Private Outputs
 
 ## Webゲーム開発
 
 - [AirPoker](https://air-poker.vercel.app/): 某漫画内ゲーム。[Next.js + WebRTC + MongoDB](https://github.com/darai0512/air-poker)
-- [王への請願](https://to-court-the-king-js.vercel.app/): 有名ボードゲーム。[Next.js + WebRTC](https://github.com/darai0512/to-court-the-king.js)
+- [王への請願](https://to-court-the-king-js.vercel.app/): 有名ボドゲ。[Next.js + WebRTC](https://github.com/darai0512/to-court-the-king.js)
 - [Slack CodeGolf](https://github.com/slack-codegolf): Node.js + websocket on heroku
 
 ## OSS貢献
@@ -45,31 +26,29 @@ css: |-
 - Node.js本体: [timers](https://github.com/nodejs/node/pull/11646)、[hidden class最適やらdocsやら](https://github.com/nodejs/node/pulls?q=is%3Apr+is%3Aclosed+author%3Adarai0512)
 - [AI音声合成TTS Style-Bert-VITS2](https://github.com/litagin02/Style-Bert-VITS2)の初期リリース貢献
 - [AI歌唱合成NeuCoSVC](https://github.com/thuhcsi/NeuCoSVC)
+- [kotoba-whisper](https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1)
 
 ## 副業
-- [kakekomu](https://corporate.kakekomu.com/): 後輩がCTO。1ヶ月ほど手伝い。一部機能（質問回答通知機能)やjwt暗号化実装とテスト拡充など
-- [meetsmore](https://meetsmore.com/): 同期がCTO。1ヶ月ほど手伝い。MongoDBのアプリデータをBigqueryへ。partition設計を行い、Digdagのバッチを実装
+
+- [kakekomu](https://www.kakekomu.com/)(ST Booking): 後輩がCTO。1ヶ月ほど手伝い、質問回答通知機能・jwt暗号化・テスト拡充など
+- [meetsmore](https://meetsmore.com/): 同期がCTO。1ヶ月ほど手伝い。MongoDBのアプリデータをBigqueryへ(table/partition設計・Digdagバッチ・コンテナ化)
 - smoothy: Googleの営業と組んだサイドビジネス。飲食店などの予約サービス(ReactNative,サ終)
 
 ## その他
-- 勉強会登壇
-  - [Node学園祭 2018 session speaker](https://nodefest.jp/2018/schedule.html#conference-2-3), [Node学園](https://nodejs.connpass.com/event/54749/presentation/), [Gotanda.js](https://gotandajs.connpass.com/event/66262/), Meguro.es, etc...
-- leetcode: gist見てください
+
+- 登壇歴: https://github.com/darai0512/talks/blob/master/README.md
 - 販売・配布
   - twitch配信コメントのOBS画面反映アニメーション（js+websocket+css）
-  - blenderで作ったVR用小物: booth販売
-  - hugging-face: RVCモデル・VITSモデル・画像lora
+  - VR用小物 by Blender/RVCモデル/VITSモデル/画像lora: booth販売
 - ハッカソン
   - 国内: 目覚ましゲーム(iOS)で特許出願
   - 台湾ハッカソン: 台湾で2度参加。プロトタイプ開発・英語プレゼン。現地エンジニアとは今も交流あります
-- 資格
-  - 認定スクラムデベロッパー(CSD)
-
-次ページ以降、具体的な職歴を記載いたします。
+- leetcode: See gist
+- 資格: 認定スクラムデベロッパー(csd)
 
 <div class="page-break"></div>
 
-# オンライン決済システム（API・SDK）開発
+# 職歴: オンライン決済システム（API・SDK）
 ## 概要
 
 オンラインでのクレジットカード決済機能（PCI-DSS準拠のAPI・SDK）を提供するBtoBサービス企業で働いた。（在職中に上場を果たしたことはかけがえのない経験となった）
@@ -197,7 +176,7 @@ css: |-
 
 <div class="page-break"></div>
 
-# メディア売買Webサービスローンチ
+# 職歴: メディア売買Webサービスローンチ
 
 ## 概要
 
@@ -225,7 +204,7 @@ FEが経験の少ない学生だったので、デザインをメインに分担
 
 <div class="page-break"></div>
 
-# 部署横断言語（Node.js）サポート活動
+# 職歴: 部署横断言語（Node.js）サポート活動
 ## 所属と期間
 
 大手IT企業の正社員として、2018年〜2019年の退職まで兼務
@@ -257,7 +236,7 @@ https://techblog.yahoo.co.jp/entry/2020072830014370/
 
 <div class="page-break"></div>
 
-# DMP（データマネジメントプラットフォーム）設計・開発
+# 職歴: DMP（データマネジメントプラットフォーム）設計・開発
 
 ## 所属と期間
 
@@ -331,7 +310,7 @@ APIの外部公開予定はないし、当時のswaggerの自動生成SDKのnode
 
 <div class="page-break"></div>
 
-# 機械学習用メタデータ生成システム刷新
+# 職歴: 機械学習用メタデータ生成システム刷新
 
 ## 所属と期間
 

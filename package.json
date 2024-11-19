@@ -1,21 +1,17 @@
 {
-  "name": "nodefest2018",
-  "author": "Daiki Arai",
   "private": true,
   "scripts": {
-    "start": "node ./server.js",
-    "build": "md-to-pdf resume.md"
+    "start": "uv run -m http.server 3000  # http://localhost:3000/",
+    "start:https": "node ./server.js  # https://localhost:3000/",
+    "build": "md-to-pdf resume.md && md-to-pdf resume.md --as-html"
   },
   "dependencies": {
     "emoji-awesome": "0.0.2",
-    "node-fetch": "^2.3.0",
     "reveal.js": "^3.7.0",
-    "tls-keygen": "^3.6.1"
+    "md-to-pdf": "^5.2.4",
+    "tls-keygen": "latest"
   },
   "engines": {
     "node": ">=22.0.0"
-  },
-  "devDependencies": {
-    "md-to-pdf": "^5.2.4"
   }
 }
