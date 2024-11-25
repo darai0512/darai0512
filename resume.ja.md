@@ -28,11 +28,12 @@ css: |-
 - [AI歌唱合成NeuCoSVC](https://github.com/thuhcsi/NeuCoSVC)
 - [kotoba-whisper](https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1)
 
-## 副業
+## 副業 / サイドビジネス
 
-- [kakekomu](https://www.kakekomu.com/)(ST Booking): 後輩がCTO。1ヶ月ほど手伝い、質問回答通知機能・jwt暗号化・テスト拡充など
-- [meetsmore](https://meetsmore.com/): 同期がCTO。1ヶ月ほど手伝い。MongoDBのアプリデータをBigqueryへ(table/partition設計・Digdagバッチ・コンテナ化)
-- smoothy: Googleの営業と組んだサイドビジネス。飲食店などの予約サービス(ReactNative,サ終)
+- [Kakekomu](https://www.kakekomu.com/)(ST Booking): CTO(後輩)お誘いで1ヶ月手伝い、質問回答通知機能・jwt暗号化・テスト拡充など
+- [Meetsmore](https://meetsmore.com/): CTO(同期)お誘いで1ヶ月手伝い。MongoDBのアプリデータをBigqueryへ(table/partition設計・Digdagバッチ・コンテナ化)
+- Smoothy: Googleの営業の方と組んで。飲食店などの予約サービス(ReactNative,サ終)
+- [Kotoba Technologies](https://www.kotoba.tech/): Transformer Modelプロダクト開発のお手伝い中
 
 ## その他
 
