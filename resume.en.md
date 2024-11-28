@@ -15,49 +15,50 @@ css: |-
 
 # Private Outputs
 
-## Web Game Development
+## Web Games
 
-- [AirPoker](https://air-poker.vercel.app/): A game from a certain manga. [Next.js + WebRTC + MongoDB](https://github.com/darai0512/air-poker)
+- [AirPoker](https://air-poker.vercel.app/): A game from a Japanese manga. [Next.js + WebRTC + MongoDB](https://github.com/darai0512/air-poker)
 - [To Court the King](https://to-court-the-king-js.vercel.app/): A famous board game. [Next.js + WebRTC](https://github.com/darai0512/to-court-the-king.js)
-- [Slack CodeGolf](https://github.com/slack-codegolf): Node.js + WebSocket on Heroku
+- [Slack CodeGolf](https://github.com/slack-codegolf): Node.js + WebSocket + Heroku
 
 ## OSS Contributions
 
-- Node.js Core: Contributions to [timers](https://github.com/nodejs/node/pull/11646) and [hidden class optimizations, documentation, etc.](https://github.com/nodejs/node/pulls?q=is%3Apr+is%3Aclosed+author%3Adarai0512)
-- Initial release contributions to [AI Speech Synthesis TTS Style-Bert-VITS2](https://github.com/litagin02/Style-Bert-VITS2)
-- [AI Singing Synthesis NeuCoSVC](https://github.com/thuhcsi/NeuCoSVC)
-- [kotoba-whisper](https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1)
+- Node.js: [timers](https://github.com/nodejs/node/pull/11646) and [hidden class optimizations, documentation, etc.](https://github.com/nodejs/node/pulls?q=is%3Apr+is%3Aclosed+author%3Adarai0512)
+- First release contributions & reviews to AI TextToSpeech [Style-Bert-VITS2](https://github.com/litagin02/Style-Bert-VITS2)
+- [AI Singing Synthesis NeuCoSVC](https://github.com/thuhcsi/NeuCoSVC), [kotoba-whisper HF pipeline](https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1)
+- and more...
 
 ## Side Jobs
 
-- [kakekomu](https://www.kakekomu.com/) (ST Booking): Assisted for about a month. Worked on question notification features, JWT encryption, test expansion, etc.
-- [meetsmore](https://meetsmore.com/): Assisted for about a month. Migrated application data from MongoDB to BigQuery (table/partition design, Digdag batch processing, containerization)
-- Smoothy: A side business partnered with a Google sales. A reservation service for restaurants (React Native, service ended)
+- [Kakekomu (ST Booking)](https://www.kakekomu.com/): Assisted for about a month (Adding Notification, JWT encryption, unit test ...etc).
+- [Meetsmore](https://meetsmore.com/): Assisted for about a month (Making ETL system from MongoDB to BigQuery with table/partition design by Digdag)
+- Smoothy: A side business with a Googler (sales). A reservation service for restaurants (React Native, service closed)
 - [Kotoba Technologies](https://www.kotoba.tech/): Assisting now about AI product
 
 ## Others
 
-- Presentation History: https://github.com/darai0512/talks/blob/master/README.md
-- Sales and Distribution:
-  - OBS screen reflection animation for Twitch stream comments (js + WebSocket + css)
-  - VR accessories created with Blender/RVC models/VITS models/Image LoRA: Sold on Booth
+- Conference speeches: https://github.com/darai0512/talks/blob/master/README.md
+- Sales/Distributions:
+  - screen animation on OBS for Twitch streaming (js + WebSocket + css)
+  - VR accessories created with Blender, AI models(RVC, VITS, LoRA)
 - Hackathons:
-  - Domestic: Filed a patent for an alarm game (iOS)
-  - Taiwan Hackathon: Participated twice in Taiwan. Developed prototypes and gave presentations in English. Still in contact with local engineers
-- LeetCode: See gist
+  - Domestic: Got the patent (an alarm game on iOS)
+  - Taiwan: Participated twice with Taiwanese developpers
 - Qualifications: Certified Scrum Developer (CSD)
 
 <div class="page-break"></div>
 
-# Work History: Online Payment System (API & SDK)
+# Work: Online Payment System (API & SDK)
 
 ## Overview
 
-Worked at a B2B service company providing online credit card payment functions (PCI-DSS compliant APIs and SDKs). Achieving IPO during my tenure was an invaluable experience.
+Worked at a B2B service company providing online credit card payment functions with PCI-DSS.
+
+It achieved an IPO during my tenure.
 
 ## Duration
 
-Approximately one year in 2018 as a contract employee (utilizing the side job system of my previous company while still employed there), and from 2019 to the present as a full-time employee.
+2018/12 - 2024/12 (as a side job during 2018/12 - 2019/12)
 
 ## Scale
 
@@ -186,15 +187,24 @@ Maintained and operated SDKs for [Go](https://github.com/payjp/payjp-go) / [Node
 
 <div class="page-break"></div>
 
-# Work History: Launching a Media Trading Web Service
+# Work: Launching a Media Trading Web Service
 
 ## Overview
 
-Was approached to assist in launching a service for buying and selling secondary creations (any format such as images, videos, novels, VRM, etc.) that had been in development for two years with a total of 10 people but had not been released. Worked as a part-time contractor alongside my main job to launch the service.
+Released a service for buying and selling fan-fictions (images, videos, novels and VRM etc).
+
+It had been in development for two years with a total of 10 people but had not been released.
+Worked as a part-time contractor alongside my main job to launch the service.
+
+## Team size
+
+3 + me
+
+(When I joined, there are two university students as developers and a founder.)
 
 ## Duration
 
-From October 2019 for 1.5 months
+2019/10 - 2019/12 (as a side job)
 
 ## Role and Contributions
 
@@ -218,7 +228,7 @@ We were gathering at Yahoo! Japan's open Lodge at the time, so I joined after my
 
 <div class="page-break"></div>
 
-# Work History: Cross-Departmental Language (Node.js) Support Activities
+# Work: Cross-Departmental Language (Node.js) Support Activities
 
 ## Affiliation and Duration
 
@@ -253,7 +263,7 @@ Reference: https://techblog.yahoo.co.jp/entry/2020072830014370/
 
 <div class="page-break"></div>
 
-# Work History: Designing and Developing a DMP (Data Management Platform)
+# Work: Developing DMP (Data Management Platform)
 
 ## Affiliation and Duration
 
@@ -339,13 +349,15 @@ Introduced API Blueprint for creating API specifications and shared the method a
 
 <div class="page-break"></div>
 
-# Work History: Overhauling a Metadata Generation System for Machine Learning
+# Work: Improving the Metadata Generation System for Machine Learning
 
 ## Affiliation and Duration
 
 Assigned as my first job upon joining a major ad distribution company (also with its own media) as a full-time employee from the end of 2013 to 2015. Continued maintenance and operation until resignation.
 
 ## Background
+
+Our five-member team was responsible for creating user lists for behaviorally targeted (BT) advertisements that generated annual sales exceeding 1 billion yen. To improve the accuracy of the gradient boosting-based machine learning logic used in generating these lists, we enhanced the training data by adding metadata. This metadata was manually processed by another department, but due to legacy systems and inefficient operations, we revamped the tools and operational methods.
 
 While generating user lists for behavioral targeting (BT) ads using machine learning logic based on gradient boosting, we enhanced accuracy by attaching metadata to the logs used for training.
 
