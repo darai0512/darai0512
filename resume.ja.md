@@ -1,5 +1,6 @@
 ---
 stylesheet: https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css
+document-title: darai's resume
 body_class: markdown-body
 marked_options:
   breaks: true
@@ -19,20 +20,20 @@ css: |-
 
 - [AirPoker](https://air-poker.vercel.app/): 某漫画内ゲーム。[Next.js + WebRTC + MongoDB](https://github.com/darai0512/air-poker)
 - [王への請願](https://to-court-the-king-js.vercel.app/): 有名ボドゲ。[Next.js + WebRTC](https://github.com/darai0512/to-court-the-king.js)
+  - いずれもWebRTCの勉強目的であり、現状ではWebSocketやgRPCを使うべきと認識済
 - [Slack CodeGolf](https://github.com/slack-codegolf): Node.js + websocket on heroku
 
 ## OSS貢献
 
 - Node.js本体: [timers](https://github.com/nodejs/node/pull/11646)、[hidden class最適やらdocsやら](https://github.com/nodejs/node/pulls?q=is%3Apr+is%3Aclosed+author%3Adarai0512)
-- [AI音声合成TTS Style-Bert-VITS2](https://github.com/litagin02/Style-Bert-VITS2)の初期リリース・設計レビューetc...
-- [AI歌唱合成NeuCoSVC](https://github.com/thuhcsi/NeuCoSVC), [kotoba-whisper HF pipeline](https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1)
-- その他...
+- AI: [音声合成TTS Style-Bert-VITS2](https://github.com/litagin02/Style-Bert-VITS2)の初期リリース貢献、[歌唱合成NeuCoSVC](https://github.com/thuhcsi/NeuCoSVC)、[kotoba-whisper HF pipeline](https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1)
+- and more...
 
 ## 副業
 
 - [Kakekomu (ST Booking)](https://www.kakekomu.com/): CTO(後輩)お誘いで1ヶ月手伝い、質問回答通知機能・jwt暗号化・テスト拡充など
 - [Meetsmore](https://meetsmore.com/): CTO(同期)お誘いで1ヶ月手伝い。MongoDBのアプリデータをBigqueryへ(table/partition設計・Digdagバッチ・コンテナ化)
-- Smoothy: Googleの営業の方と組んで。飲食店などの予約サービス(ReactNative,サ終)
+- Smoothy: Googleの営業の方と組んで。飲食店などの予約サービス(ReactNative+Liff(Line App),サ終)
 - [Kotoba Technologies](https://www.kotoba.tech/): Transformer Modelプロダクト開発のお手伝い中
 
 ## その他
@@ -63,7 +64,7 @@ css: |-
 
 ## 期間
 
-2018/12 - 2024/12 (2018/12 - 2019/12 は副業の業務委託契約で本業と掛け持ち)
+2017/12 - 2024/12 (2017/12 - 2018/12 は副業の業務委託契約で本業と掛け持ち)
 
 ## 進め方
 
@@ -86,6 +87,14 @@ css: |-
   - Platform（BtoBtoB）と主サービス(BtoB)とを比べると前者はアカウント構造がネストしている。メリデメを洗い出し、再帰ではなく、rootのアカウントを既存テーブルに一本化・ネスト分は別テーブルに分け、各リソースとnullableの外部キー制約で紐付けた
   - 分かれていた管理画面も一本化。ログイン後画面やAPI構造に差異は生じた（UIコンポーネントやserviceでのif分岐等が増えた）が、DIやネスト構造のフラッテンなどでカバーし、共通化のメリットが上回った
 
+### ApplePay Refactoring
+
+- 課題：当時のpyopensslではApplePayの証明書検証（X509Extensionのoid取得・ECDH derivationなど）に対応しておらず、前任者がApplePay決済対応をリリース速度優先のためにforkして利用していた。その後OSアップデート・PCI-DSS準拠のために、古いversionでforkされたcryptography/pyopensslからの脱却が必要だが、前任者が去って周辺知識を持つ人間がいなかった
+- forkして足されたコードを読み解き、次にそれぞれの最新版のコードを読んで比較した
+  - X509Extension対応は最新版の特定libsslバージョン併存下のif-defマクロ付きで組み込まれており、工夫すれば最新版+forkで追加したロジックの一部移植で決済可能
+  - 他、urllib3のTLSハンドシェイクタイムアウト時の例外が広範囲を同じ例外クラスにまとめているので独自ラップなど...etc
+- 細かく証明書検証・暗号ロジックのテストを書き、forkを捨て本家に追従できるようになった
+
 ### チャージバック（不正利用時に売上没収する仕組み）自動化
 
 - 工数：エンジニア2人・PM1人で6ヶ月ほど
@@ -98,7 +107,7 @@ css: |-
   - 売上金から相殺するロジックを用意し、取りっぱぐれや自動化の難しい請求書送付を減らした
 - 開発においては、業務委託エンジニア2名(3ヶ月おきに別人1名ずつ)に対して自分がリードした。ドメイン知識の差を埋めるべく、ビデオ通話多めの気さくなやりとり・github上で認識違いが減るよう専門用語ではなく具体的なコード変更で示すなど工夫した
 
-### マルチアカウント化+PCI-DSS+Vue.js 2系EOL対応+デザイン刷新
+### IAM機能実装 + Vue.js 2系EOL対応 + デザイン刷新
 
 - 工数：エンジニア自分のみ・デザイナー1人・PM1人で5ヶ月ほど
 - 役割：プレイヤーとして企画・要件定義からDB・BE・FEの設計と開発
@@ -120,15 +129,6 @@ css: |-
 - 残存課題：デザイナーとのやりとりの難しさ
   - 環境構築・Vue.js学習などのコストが壁で、HTML・CSS・JSを別リポジトリで管理し自分が分解してVue.jsへ取り込んだが、デザイン差し戻しで変更されるとその差分をどこに反映するべきか見失いやすかった
 
-### 高度技術課題への対応（ex, 独自拡張したcryptography/pyopenssl脱却）
-
-- 課題：当時のpyopensslではApplePayの証明書検証（X509Extensionのoid取得・ECDH derivationなど）に対応しておらず、前任者がApplePay決済対応のためにforkして利用していた。その後OSアップデート・PCI-DSS準拠のために、古いversionでforkされたcryptography/pyopensslからの脱却が必要だが、前任者が去って周辺知識を持つ人間がいなかった
-- 解決：
-  - まずforkして足されたコードを読み解き、次にそれぞれの最新版のコードを読んで比較した
-  - ex, X509Extension対応は最新版の特定libsslバージョン併存下のif-defマクロ付きで組み込まれており、条件を満たせばforkで追加した一部を捨てられる、など
-  - 細かくテストを書き、レビューワーに噛み砕いて証明書検証・暗号ロジックなどをシェア。forkを捨て本家に追従できるようになった
-- 他、urllib3のTLSハンドシェイクタイムアウト時の例外が広範囲を同じ例外クラスにまとめている問題など...etc
-
 ### コンテナ化とインフラ刷新
 
 - 工数：エンジニア自分のみで技術調査・基礎構築を半年、その後エンジニア3人・セキュリティ専属1人・PM1人で仕上げ3ヶ月
@@ -144,23 +144,22 @@ css: |-
   - コンテナ化に伴うアプリケーションの改修：fs脱却/logging設定/環境変数ベース（tfstate/secret managerから設定値を読む）
   - requests/urllib3/各種SDK(sentry,bigquery,onelogin...)にそれぞれプロキシ設定。多くはHTTP_PROXY環境変数で対応できるが、内部通信でプロキシ不要のboto3も影響を受けるので工夫
 
-※初めの数ヶ月はEKS(kubernetes)想定でhelm+devspaceで構築。しかしAWSサポートチームからのk8sの長期運用の難易度の高さの警告・EKS on Fargateでは実現しにくい機能などが見つかり、ECSへ方針転換した
+※初めの数ヶ月はEKS(kubernetes)想定でhelm+devspaceで構築。しかしAWSサポートからの警告(k8sの長期運用の難易度の高さ)とEKS on Fargateでは実現しにくい機能などが見つかり、ECSへ方針転換
 
 ### SDK保守運用と新規開発
 
 #### JSカード情報入力ライブラリ
 
-最新のPCI-DSS要件を満たす[iframe型(加盟店ドメインを経由しない)電子商取引jsライブラリ](https://pay.jp/docs/payjs)を1人1.5ヶ月で新規開発
+最新のPCI-DSS要件を満たす[iframe型(加盟店ドメインを経由しない)電子商取引jsライブラリ](https://pay.jp/docs/payjs)を1人2ヶ月で新規開発
   
-- 世界規模のライブラリをリバースエンジニアリングで参考に
+- Stripeをリバースエンジニアリングで参考に
 - [material designと合わせたサンプル](https://pay.jp/docs/migrate-payjs-v1)などドキュメント拡充させ、要件を満たさない以前のJSからの移行をサポート。完全移行に成功
 
 動作ブラウザを制限できる管理画面とは異なり、エンドユーザーの様々な環境下での動作保証に苦労した
 
-- playwrightでchrome/safari/ffのテストを自動化
-- iOSやAndroid、windowsはBrowserStack
-- それでもLineアプリ内ブラウザのみでwindow.openが動作しない・3DSecure対応のUIで国コード絵文字がwindowsのselect.option内で適切に表記されない、などエッジケース多数、地道に改修
-- ビルドした成果物がスコープに収まっている（変数がグローバルになっていない）ことの検出は抽象構文木でテスト
+- playwright, BrowserStack で主要OS・ブラウザ・モバイルを担保
+- Liff(Lineアプリ)内ブラウザのみでwindow.openが動作しない・3DSecure対応のUIで国コード絵文字がwindowsのselect.option内で適切に表記されない、などエッジケース多数、地道に改修
+- ビルドした成果物の名前空間が漏れていない（変数がグローバルになっていない）担保: 抽象構文木でのテスト
 
 #### mobileカード情報入力ライブラリ
 
@@ -184,27 +183,24 @@ css: |-
 ## 概要
 
 二次創作物（画像・動画・小説・vrmなど形式任意）を売買できるサービスを、構想から2年総勢10名で開発したがリリースに至っておらず、
-力を貸してくれと声がかかり、本業と並行して副業業務委託としてサービスローンチさせた。
+力を貸してくれと声がかかり、副業で共同創業者として(現在は辞退済)、1ヶ月半でサービスローンチさせた。
 
-## チームの規模
+## チームの規模と役割
 
 (ジョイン時は)創業者と開発者として大学生2人だけだった。
 
+開発リーダーとして、前任者たちの開発途中の成果物の整理後、デザイン整理・要件定義・開発・QAをした。
+
 ## 期間
 
-2019/10 - 2019/12 (副業)
-
-## 役割と果たしたこと
-
-開発リーダーとして、企画・デザイン整理と要件定義をしつつタスク化、エンジニア他2人をリードして1ヶ月半でリリースさせた。
+2019/10 - 2019/12
 
 ## 詳細
 
-まずpush内容がslack通知される・stg環境に反映されるCI/CDを構築した。
-Trelloに残っていたタスクチケットをみて、全員が副業なのでスクラム的なやり方は適切に思えるが、開発人数に対するタスク粒度の不適切さが見受けられた。
-アジャイルは開発速度を早くする手法ではないし、リリースを急ぎたい中でチケット消費の仕事した感は邪魔になる。
-絶対に必要な画面や機能を、明文化されてない要件などは開発者任せにしてとにかく開発し、pushの通知で創業者がstg確認し、QAも兼ねて仕様確認をしてもらうルールにした。
-(PR bodyがslack通知されるので自身で決めた仕様は明記する。終盤はPRさえ時間が惜しかったのでcommit messageに変更)
+まずGitLab/Trelloとslackを連携させ、pushからstg環境反映のCI/CDを構築した。
+Trelloに残っていたタスクチケットは、現在の開発人数が3人まで減った状況に対してタスク粒度が不適切であり、リリースまでに必要なタスクを全員で洗い出し、
+あとは将来に積み残す課題のみを追加していく運用にした。
+明文化されてない要件は開発者任せにしてとにかく開発し、pushの通知で非エンジニアの創業者がstgでQAする。
 
 BE(gRPCのマイクロサービス。go言語でのメディア処理・ストレージ・ORM API・dispatcher・その他)は優秀な学生が開発しており、まずはgRPCを書き上げを手伝って全てのサービスが動く状態とし、レビューとバグ修正以外は彼に任せた。
 FE(GraphQL, Nuxt.js)が経験の少ない学生だったので、画面と機能とで分担しつつ、少しずつVueやGraphQLを手解きした。
@@ -218,33 +214,39 @@ FE(GraphQL, Nuxt.js)が経験の少ない学生だったので、画面と機能
 # 職歴: 部署横断言語（Node.js）サポート活動
 ## 所属と期間
 
-2018/08 - 2019/12
-大手IT企業の正社員として、の退職まで兼務
+2017/09 - 2018/12
+大手IT企業の正社員・兼務
 
 ## 概要
 
-社内の利用推奨言語として当時Node.js(10系時代)が採用され、Node.jsコミッターの方が入社したことから、部署横断でNode.js開発をサポートするチームが発足し、兼務として活動した。
-利用者向け講習会・各部署ごとの個別課題の相談会・社外広報・チーム自身の能力アップを図ったコード輪読会などの活動をした。
+社内の推奨言語として当時Node.js(10系時代)が採用され、Node.jsコミッターの方が入社したことから、部署横断でNode.js開発をサポートするチームの一員として活動した。
 
 ## 活動実績
-### 利用者向け講習会・相談会
+### 利用者向け講習会・各部署毎の個別課題解決(相談会)
 
-expressでAPIサーバーを作ってみる、などではなく、Node.jsの核である基礎技術としてModule/[Buffer](https://techblog.yahoo.co.jp/advent-calendar-2016/node_new_buffer/
-)/Events/[Stream](https://techblog.yahoo.co.jp/advent-calendar-2016/node-stream-highwatermark/)の4点に絞り、それを実践的に学んでもらうことで問題発生時に自身で解決できる人材となれるようなプログラム（3時間×4回、定員20名前後）を組んだ。オリジナルの資料と問題集は講習後アンケートで好評を得て、複数回プログラムを実施できた。
-相談会では、シングルスレッド故のパフォーマンス・スケール方法（設計次第で解決できることを丁寧に説明）、PHPから乗り換えたらパケットロストがやメモリリークが発生（tcpdumpなどで調査しnode.js自体が原因ではないことを説明）、などがあった。
+Node.jsの核である基礎技術としてModule/[Buffer](https://techblog.yahoo.co.jp/advent-calendar-2016/node_new_buffer/)/Events/[Stream](https://techblog.yahoo.co.jp/advent-calendar-2016/node-stream-highwatermark/)の4点に絞り、
+オリジナル教材と指導で問題発生時に自身で解決できる人材を育成するプログラム（3時間×4回、定員20名前後）を組んだ。
+講習後アンケートで好評を得て、3度のリピートプログラムを実施できた。
+より実践的にNet/TLS&Crypto/fsを取り上げた続編プログラムも開催した。
 
-外部広報
-- https://nodefest.jp/2018/schedule.html#conference-2-3 <- 自分が登壇
-- https://techblog.yahoo.co.jp/advent-calendar-2018/yahoo-frontend/
+相談会(一部抜粋):
+- シングルスレッド故のパフォーマンス・スケール方法（設計次第で解決できることを丁寧に説明）
+- PHPから乗り換えたらパケットロストがやメモリリークが発生（tcpdumpなどで調査しnode.js自体が原因ではないことを説明）
+
+### 社外広報
+
+- https://nodefest.jp/2018/schedule.html#conference-2-3
+  - 自分が登壇
 - https://en-ambi.com/itcontents/entry/2019/08/08/103000/
 
-### コード輪読会
+### Node.js本体PR/docs改善、コード輪読会
 
-上の資料を作るため、Node.jsのコードを読み合わせた。
-特にEventループ理解のためにlibuv/v8などをコミッターの方の解説の下で理解できたのは最大の財産となった。
-その後も第二回講習会で通信・暗号周りを取り上げるため、TLS通信・HTTP2・暗号化などの基礎技術をNode.jsの実装ベースで学んだ。この知識は広く業務で活かすことができ、エンジニアとして最も成長できた期間だった。
+コミッターの指導の下、Node.jsのコードを読み合わせた。
+特にEventループ(libuv/v8)・通信と暗号化・HTTP2などの基礎技術をNode.jsの実装ベースで学べたことは財産であり、エンジニアとして最も成長できた期間だった。
 
 https://techblog.yahoo.co.jp/entry/2020072830014370/
+
+読み合わせの中で判明した公式docsや本体実装へのPR、[クラス図作成](https://github.com/darai0512/node-class-diagram)なども行なった。
 
 <div class="page-break"></div>
 
@@ -252,14 +254,18 @@ https://techblog.yahoo.co.jp/entry/2020072830014370/
 
 ## 所属と期間
 
-大手広告配信会社（自社メディアもあり）の正社員として、2016年〜2019年の退職まで担当
+大手広告配信会社（自社メディアもあり）の正社員
+
+## 期間
+
+2016 ~ 2018/12
 
 ## 課題
 
 ターゲティング広告販売において、競合他社のデータ利活用が盛んになる中、自社営業や代理店が広告主への提案力を高められるBIツールを作りたい。
 
 大量のデータ（メディアへのアクセスログ1日分でHDFS圧縮して1TB以上、20億PV）があり、それをHadoop管理できているが、「競合他社のユーザーに自社製品を認知させたい。どれくらいリーチしてどういう人たち（デモグラ・普段の行動履歴など）にあたるのか？」と訊かれてその場でMapReduceを繰り返すのは時間がかかりすぎる。
-また、広告主側のビッグデータと掛け合わせた分析もニーズとしてあった。
+また、広告主側のデータと掛け合わせた分析もニーズとしてあった。
 
 ## 解決
 
@@ -317,16 +323,20 @@ APIの外部公開予定はないし、当時のswaggerの自動生成SDKのnode
   - こうしたメタ情報を一元管理するコンポーネントが必要と気づき、追加開発した
 - データを機械学習に使う場合、季節変動を考慮するために最低一年間のデータが欲しい。しかしDWH（solrのオンメモリで利用）には長期間は保持しきれず、試行錯誤が必要だった
 - HiveはSQLではない
-  - クエリの構文解析においてSQL的な直感とは挙動が異なる点があり、事前にコードを読むべきだった。クエリがどうMapReduceに変換されるか想像できないとパフォーマンスへの影響が大きい
+  - SQL的な認識だとパフォーマンスが出ない点(MapReduceにどう変換されるか意識が必要)がままあった。Hiveのコードを読んで改善した。
   - またSQLインジェクションはライブラリで防げるが、独自の計算式からHQLに変換する際には自身でインジェクションに気をつける必要がある。実際リリース後、UIから渡された％の文字列がエスケープできておらず、条件式が緩くなり処理遅延につながった（何十時間経ってもMapReduceが終わらない）
 
 <div class="page-break"></div>
 
 # 職歴: 機械学習用メタデータ生成システム刷新
 
-## 所属と期間
+## 所属
 
-大手広告配信会社（自社メディアもあり）の正社員の入社初仕事として、2013年末〜2015年。保守運用は退職まで担当
+大手広告配信会社（自社メディアもあり）の正社員
+
+## 期間
+
+2013/09 ~
 
 ## 背景
 

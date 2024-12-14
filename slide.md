@@ -2,9 +2,9 @@
 <!-- .slide: data-background-size="contain"-->
 <!-- .slide: data-background-opacity="0.5"-->
 <!-- .slide: data-background-repeat="repeat"-->
-### darai's outputs ([PDF](./resume.ja.pdf) / [English](./#/1/1))
+### darai's outputs ([PDF](./resume.ja.pdf)) (or [English summary](./#/1/1))
 
-<iframe src="./resume.ja.html" width="800" height="600" loading="eager" />
+<iframe src="./resume.ja.html" style="width: 100%;" height="600" loading="eager" />
 
 ------
 
@@ -12,9 +12,9 @@
 <!-- .slide: data-background-size="contain"-->
 <!-- .slide: data-background-opacity="0.5"-->
 <!-- .slide: data-background-repeat="repeat"-->
-### darai's outputs ([PDF](./resume.en.pdf) / [Japanese](./#/1))
+### darai's outputs (English)
 
-<iframe src="./resume.en.html" width="800" height="600" loading="eager" />
+<iframe src="./resume.en.html" style="width: 100%;" height="600" loading="eager" />
 
 ---
 

@@ -127,21 +127,23 @@ code.hljs {
 <h2 id="webゲーム開発">Webゲーム開発</h2>
 <ul>
 <li><a href="https://air-poker.vercel.app/">AirPoker</a>: 某漫画内ゲーム。<a href="https://github.com/darai0512/air-poker">Next.js + WebRTC + MongoDB</a></li>
-<li><a href="https://to-court-the-king-js.vercel.app/">王への請願</a>: 有名ボドゲ。<a href="https://github.com/darai0512/to-court-the-king.js">Next.js + WebRTC</a></li>
+<li><a href="https://to-court-the-king-js.vercel.app/">王への請願</a>: 有名ボドゲ。<a href="https://github.com/darai0512/to-court-the-king.js">Next.js + WebRTC</a><ul>
+<li>いずれもWebRTCの勉強目的であり、現状ではWebSocketやgRPCを使うべきと認識済</li>
+</ul>
+</li>
 <li><a href="https://github.com/slack-codegolf">Slack CodeGolf</a>: Node.js + websocket on heroku</li>
 </ul>
 <h2 id="oss貢献">OSS貢献</h2>
 <ul>
 <li>Node.js本体: <a href="https://github.com/nodejs/node/pull/11646">timers</a>、<a href="https://github.com/nodejs/node/pulls?q=is%3Apr+is%3Aclosed+author%3Adarai0512">hidden class最適やらdocsやら</a></li>
-<li><a href="https://github.com/litagin02/Style-Bert-VITS2">AI音声合成TTS Style-Bert-VITS2</a>の初期リリース・設計レビューetc...</li>
-<li><a href="https://github.com/thuhcsi/NeuCoSVC">AI歌唱合成NeuCoSVC</a>, <a href="https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1">kotoba-whisper HF pipeline</a></li>
-<li>その他...</li>
+<li>AI: <a href="https://github.com/litagin02/Style-Bert-VITS2">音声合成TTS Style-Bert-VITS2</a>の初期リリース貢献、<a href="https://github.com/thuhcsi/NeuCoSVC">歌唱合成NeuCoSVC</a>、<a href="https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1">kotoba-whisper HF pipeline</a></li>
+<li>and more...</li>
 </ul>
 <h2 id="副業">副業</h2>
 <ul>
 <li><a href="https://www.kakekomu.com/">Kakekomu (ST Booking)</a>: CTO(後輩)お誘いで1ヶ月手伝い、質問回答通知機能・jwt暗号化・テスト拡充など</li>
 <li><a href="https://meetsmore.com/">Meetsmore</a>: CTO(同期)お誘いで1ヶ月手伝い。MongoDBのアプリデータをBigqueryへ(table/partition設計・Digdagバッチ・コンテナ化)</li>
-<li>Smoothy: Googleの営業の方と組んで。飲食店などの予約サービス(ReactNative,サ終)</li>
+<li>Smoothy: Googleの営業の方と組んで。飲食店などの予約サービス(ReactNative+Liff(Line App),サ終)</li>
 <li><a href="https://www.kotoba.tech/">Kotoba Technologies</a>: Transformer Modelプロダクト開発のお手伝い中</li>
 </ul>
 <h2 id="その他">その他</h2>
@@ -169,7 +171,7 @@ code.hljs {
 <p>従業員数250名以上のEC事業社の子会社として、<code>PAY_Dev Section</code> に所属。</p>
 <p>子会社は30名程度でエンジニアは5名(+PCI-DSSセキュリティ専門1名、中途即戦力のみ)程度で推移</p>
 <h2 id="期間">期間</h2>
-<p>2018/12 - 2024/12 (2018/12 - 2019/12 は副業の業務委託契約で本業と掛け持ち)</p>
+<p>2017/12 - 2024/12 (2017/12 - 2018/12 は副業の業務委託契約で本業と掛け持ち)</p>
 <h2 id="進め方">進め方</h2>
 <p>主サービスである決済サービス基盤(BE: python gunicorn+pyramid, DB: Aurora Postgresql, FE: vue.js+jinja)とバックオフィス(スタックは同上)の保守運用については、スクラム形式でnotion（以前はasana）でのタスク管理で進めた（コロナ以降はフルリモート）。<br>エンジニア・ビジネス・CS・マネージャー全員でプロダクトバックログの策定・リファインメントを行い、優先度・ポイント付されたタスクを順に消化していく。<br>さらに別でPJ毎に集まり、同様の管理で進める。</p>
 <p>アドホック作業（redashやBigqueryでのKPI算出・顧客企業からの技術問い合わせ回答）は当番制で担当した。</p>
@@ -189,6 +191,16 @@ code.hljs {
 </ul>
 </li>
 </ul>
+<h3 id="applepay-refactoring">ApplePay Refactoring</h3>
+<ul>
+<li>課題：当時のpyopensslではApplePayの証明書検証（X509Extensionのoid取得・ECDH derivationなど）に対応しておらず、前任者がApplePay決済対応をリリース速度優先のためにforkして利用していた。その後OSアップデート・PCI-DSS準拠のために、古いversionでforkされたcryptography/pyopensslからの脱却が必要だが、前任者が去って周辺知識を持つ人間がいなかった</li>
+<li>forkして足されたコードを読み解き、次にそれぞれの最新版のコードを読んで比較した<ul>
+<li>X509Extension対応は最新版の特定libsslバージョン併存下のif-defマクロ付きで組み込まれており、工夫すれば最新版+forkで追加したロジックの一部移植で決済可能</li>
+<li>他、urllib3のTLSハンドシェイクタイムアウト時の例外が広範囲を同じ例外クラスにまとめているので独自ラップなど...etc</li>
+</ul>
+</li>
+<li>細かく証明書検証・暗号ロジックのテストを書き、forkを捨て本家に追従できるようになった</li>
+</ul>
 <h3 id="チャージバック（不正利用時に売上没収する仕組み）自動化">チャージバック（不正利用時に売上没収する仕組み）自動化</h3>
 <ul>
 <li>工数：エンジニア2人・PM1人で6ヶ月ほど</li>
@@ -203,7 +215,7 @@ code.hljs {
 </li>
 <li>開発においては、業務委託エンジニア2名(3ヶ月おきに別人1名ずつ)に対して自分がリードした。ドメイン知識の差を埋めるべく、ビデオ通話多めの気さくなやりとり・github上で認識違いが減るよう専門用語ではなく具体的なコード変更で示すなど工夫した</li>
 </ul>
-<h3 id="マルチアカウント化pci-dssvuejs-2系eol対応デザイン刷新">マルチアカウント化+PCI-DSS+Vue.js 2系EOL対応+デザイン刷新</h3>
+<h3 id="iam機能実装--vuejs-2系eol対応--デザイン刷新">IAM機能実装 + Vue.js 2系EOL対応 + デザイン刷新</h3>
 <ul>
 <li>工数：エンジニア自分のみ・デザイナー1人・PM1人で5ヶ月ほど</li>
 <li>役割：プレイヤーとして企画・要件定義からDB・BE・FEの設計と開発</li>
@@ -231,17 +243,6 @@ code.hljs {
 </ul>
 </li>
 </ul>
-<h3 id="高度技術課題への対応（ex-独自拡張したcryptographypyopenssl脱却）">高度技術課題への対応（ex, 独自拡張したcryptography/pyopenssl脱却）</h3>
-<ul>
-<li>課題：当時のpyopensslではApplePayの証明書検証（X509Extensionのoid取得・ECDH derivationなど）に対応しておらず、前任者がApplePay決済対応のためにforkして利用していた。その後OSアップデート・PCI-DSS準拠のために、古いversionでforkされたcryptography/pyopensslからの脱却が必要だが、前任者が去って周辺知識を持つ人間がいなかった</li>
-<li>解決：<ul>
-<li>まずforkして足されたコードを読み解き、次にそれぞれの最新版のコードを読んで比較した</li>
-<li>ex, X509Extension対応は最新版の特定libsslバージョン併存下のif-defマクロ付きで組み込まれており、条件を満たせばforkで追加した一部を捨てられる、など</li>
-<li>細かくテストを書き、レビューワーに噛み砕いて証明書検証・暗号ロジックなどをシェア。forkを捨て本家に追従できるようになった</li>
-</ul>
-</li>
-<li>他、urllib3のTLSハンドシェイクタイムアウト時の例外が広範囲を同じ例外クラスにまとめている問題など...etc</li>
-</ul>
 <h3 id="コンテナ化とインフラ刷新">コンテナ化とインフラ刷新</h3>
 <ul>
 <li>工数：エンジニア自分のみで技術調査・基礎構築を半年、その後エンジニア3人・セキュリティ専属1人・PM1人で仕上げ3ヶ月</li>
@@ -261,20 +262,19 @@ code.hljs {
 </ul>
 </li>
 </ul>
-<p>※初めの数ヶ月はEKS(kubernetes)想定でhelm+devspaceで構築。しかしAWSサポートチームからのk8sの長期運用の難易度の高さの警告・EKS on Fargateでは実現しにくい機能などが見つかり、ECSへ方針転換した</p>
+<p>※初めの数ヶ月はEKS(kubernetes)想定でhelm+devspaceで構築。しかしAWSサポートからの警告(k8sの長期運用の難易度の高さ)とEKS on Fargateでは実現しにくい機能などが見つかり、ECSへ方針転換</p>
 <h3 id="sdk保守運用と新規開発">SDK保守運用と新規開発</h3>
 <h4 id="jsカード情報入力ライブラリ">JSカード情報入力ライブラリ</h4>
-<p>最新のPCI-DSS要件を満たす<a href="https://pay.jp/docs/payjs">iframe型(加盟店ドメインを経由しない)電子商取引jsライブラリ</a>を1人1.5ヶ月で新規開発</p>
+<p>最新のPCI-DSS要件を満たす<a href="https://pay.jp/docs/payjs">iframe型(加盟店ドメインを経由しない)電子商取引jsライブラリ</a>を1人2ヶ月で新規開発</p>
 <ul>
-<li>世界規模のライブラリをリバースエンジニアリングで参考に</li>
+<li>Stripeをリバースエンジニアリングで参考に</li>
 <li><a href="https://pay.jp/docs/migrate-payjs-v1">material designと合わせたサンプル</a>などドキュメント拡充させ、要件を満たさない以前のJSからの移行をサポート。完全移行に成功</li>
 </ul>
 <p>動作ブラウザを制限できる管理画面とは異なり、エンドユーザーの様々な環境下での動作保証に苦労した</p>
 <ul>
-<li>playwrightでchrome/safari/ffのテストを自動化</li>
-<li>iOSやAndroid、windowsはBrowserStack</li>
-<li>それでもLineアプリ内ブラウザのみでwindow.openが動作しない・3DSecure対応のUIで国コード絵文字がwindowsのselect.option内で適切に表記されない、などエッジケース多数、地道に改修</li>
-<li>ビルドした成果物がスコープに収まっている（変数がグローバルになっていない）ことの検出は抽象構文木でテスト</li>
+<li>playwright, BrowserStack で主要OS・ブラウザ・モバイルを担保</li>
+<li>Liff(Lineアプリ)内ブラウザのみでwindow.openが動作しない・3DSecure対応のUIで国コード絵文字がwindowsのselect.option内で適切に表記されない、などエッジケース多数、地道に改修</li>
+<li>ビルドした成果物の名前空間が漏れていない（変数がグローバルになっていない）担保: 抽象構文木でのテスト</li>
 </ul>
 <h4 id="mobileカード情報入力ライブラリ">mobileカード情報入力ライブラリ</h4>
 <p><a href="https://github.com/payjp/payjp-ios">Swift</a> / <a href="https://github.com/payjp/payjp-android">Kotlin</a> / <a href="https://github.com/payjp/payjp-react-native-plugin">react-native + Expo</a> / <a href="https://github.com/payjp/payjp-flutter-plugin">flutter</a> を用意。モバイル専属エンジニア1名のサポート・レビューという形で貢献。</p>
@@ -296,15 +296,14 @@ code.hljs {
 
 <h1 id="職歴-メディア売買webサービスローンチ">職歴: メディア売買Webサービスローンチ</h1>
 <h2 id="概要-1">概要</h2>
-<p>二次創作物（画像・動画・小説・vrmなど形式任意）を売買できるサービスを、構想から2年総勢10名で開発したがリリースに至っておらず、<br>力を貸してくれと声がかかり、本業と並行して副業業務委託としてサービスローンチさせた。</p>
-<h2 id="チームの規模">チームの規模</h2>
+<p>二次創作物（画像・動画・小説・vrmなど形式任意）を売買できるサービスを、構想から2年総勢10名で開発したがリリースに至っておらず、<br>力を貸してくれと声がかかり、副業で共同創業者として(現在は辞退済)、1ヶ月半でサービスローンチさせた。</p>
+<h2 id="チームの規模と役割">チームの規模と役割</h2>
 <p>(ジョイン時は)創業者と開発者として大学生2人だけだった。</p>
+<p>開発リーダーとして、前任者たちの開発途中の成果物の整理後、デザイン整理・要件定義・開発・QAをした。</p>
 <h2 id="期間-1">期間</h2>
-<p>2019/10 - 2019/12 (副業)</p>
-<h2 id="役割と果たしたこと">役割と果たしたこと</h2>
-<p>開発リーダーとして、企画・デザイン整理と要件定義をしつつタスク化、エンジニア他2人をリードして1ヶ月半でリリースさせた。</p>
+<p>2019/10 - 2019/12</p>
 <h2 id="詳細">詳細</h2>
-<p>まずpush内容がslack通知される・stg環境に反映されるCI/CDを構築した。<br>Trelloに残っていたタスクチケットをみて、全員が副業なのでスクラム的なやり方は適切に思えるが、開発人数に対するタスク粒度の不適切さが見受けられた。<br>アジャイルは開発速度を早くする手法ではないし、リリースを急ぎたい中でチケット消費の仕事した感は邪魔になる。<br>絶対に必要な画面や機能を、明文化されてない要件などは開発者任せにしてとにかく開発し、pushの通知で創業者がstg確認し、QAも兼ねて仕様確認をしてもらうルールにした。<br>(PR bodyがslack通知されるので自身で決めた仕様は明記する。終盤はPRさえ時間が惜しかったのでcommit messageに変更)</p>
+<p>まずGitLab/Trelloとslackを連携させ、pushからstg環境反映のCI/CDを構築した。<br>Trelloに残っていたタスクチケットは、現在の開発人数が3人まで減った状況に対してタスク粒度が不適切であり、リリースまでに必要なタスクを全員で洗い出し、<br>あとは将来に積み残す課題のみを追加していく運用にした。<br>明文化されてない要件は開発者任せにしてとにかく開発し、pushの通知で非エンジニアの創業者がstgでQAする。</p>
 <p>BE(gRPCのマイクロサービス。go言語でのメディア処理・ストレージ・ORM API・dispatcher・その他)は優秀な学生が開発しており、まずはgRPCを書き上げを手伝って全てのサービスが動く状態とし、レビューとバグ修正以外は彼に任せた。<br>FE(GraphQL, Nuxt.js)が経験の少ない学生だったので、画面と機能とで分担しつつ、少しずつVueやGraphQLを手解きした。</p>
 <p>とにかく作った：マルチメディアアップロードフォーム・paypal決済と口座登録フォーム・検索機能・ログイン...etc</p>
 <p>当時開放されていたYahoo!Japanのロッジに集まっていたので本業後に合流し、閉館後はファミレスで開発する日々だった。1ヶ月後の深夜3時にジョイフル赤坂店でリリース、乾杯の喜びは今も覚えている。</p>
@@ -312,29 +311,39 @@ code.hljs {
 
 <h1 id="職歴-部署横断言語（nodejs）サポート活動">職歴: 部署横断言語（Node.js）サポート活動</h1>
 <h2 id="所属と期間">所属と期間</h2>
-<p>2018/08 - 2019/12<br>大手IT企業の正社員として、の退職まで兼務</p>
+<p>2017/09 - 2018/12<br>大手IT企業の正社員・兼務</p>
 <h2 id="概要-2">概要</h2>
-<p>社内の利用推奨言語として当時Node.js(10系時代)が採用され、Node.jsコミッターの方が入社したことから、部署横断でNode.js開発をサポートするチームが発足し、兼務として活動した。<br>利用者向け講習会・各部署ごとの個別課題の相談会・社外広報・チーム自身の能力アップを図ったコード輪読会などの活動をした。</p>
+<p>社内の推奨言語として当時Node.js(10系時代)が採用され、Node.jsコミッターの方が入社したことから、部署横断でNode.js開発をサポートするチームの一員として活動した。</p>
 <h2 id="活動実績">活動実績</h2>
-<h3 id="利用者向け講習会・相談会">利用者向け講習会・相談会</h3>
-<p>expressでAPIサーバーを作ってみる、などではなく、Node.jsの核である基礎技術としてModule/<a href="https://techblog.yahoo.co.jp/advent-calendar-2016/node_new_buffer/">Buffer</a>/Events/<a href="https://techblog.yahoo.co.jp/advent-calendar-2016/node-stream-highwatermark/">Stream</a>の4点に絞り、それを実践的に学んでもらうことで問題発生時に自身で解決できる人材となれるようなプログラム（3時間×4回、定員20名前後）を組んだ。オリジナルの資料と問題集は講習後アンケートで好評を得て、複数回プログラムを実施できた。<br>相談会では、シングルスレッド故のパフォーマンス・スケール方法（設計次第で解決できることを丁寧に説明）、PHPから乗り換えたらパケットロストがやメモリリークが発生（tcpdumpなどで調査しnode.js自体が原因ではないことを説明）、などがあった。</p>
-<p>外部広報</p>
+<h3 id="利用者向け講習会・各部署毎の個別課題解決相談会">利用者向け講習会・各部署毎の個別課題解決(相談会)</h3>
+<p>Node.jsの核である基礎技術としてModule/<a href="https://techblog.yahoo.co.jp/advent-calendar-2016/node_new_buffer/">Buffer</a>/Events/<a href="https://techblog.yahoo.co.jp/advent-calendar-2016/node-stream-highwatermark/">Stream</a>の4点に絞り、<br>オリジナル教材と指導で問題発生時に自身で解決できる人材を育成するプログラム（3時間×4回、定員20名前後）を組んだ。<br>講習後アンケートで好評を得て、3度のリピートプログラムを実施できた。<br>より実践的にNet/TLS&amp;Crypto/fsを取り上げた続編プログラムも開催した。</p>
+<p>相談会(一部抜粋):</p>
 <ul>
-<li><a href="https://nodefest.jp/2018/schedule.html#conference-2-3">https://nodefest.jp/2018/schedule.html#conference-2-3</a> &lt;- 自分が登壇</li>
-<li><a href="https://techblog.yahoo.co.jp/advent-calendar-2018/yahoo-frontend/">https://techblog.yahoo.co.jp/advent-calendar-2018/yahoo-frontend/</a></li>
+<li>シングルスレッド故のパフォーマンス・スケール方法（設計次第で解決できることを丁寧に説明）</li>
+<li>PHPから乗り換えたらパケットロストがやメモリリークが発生（tcpdumpなどで調査しnode.js自体が原因ではないことを説明）</li>
+</ul>
+<h3 id="社外広報">社外広報</h3>
+<ul>
+<li><a href="https://nodefest.jp/2018/schedule.html#conference-2-3">https://nodefest.jp/2018/schedule.html#conference-2-3</a><ul>
+<li>自分が登壇</li>
+</ul>
+</li>
 <li><a href="https://en-ambi.com/itcontents/entry/2019/08/08/103000/">https://en-ambi.com/itcontents/entry/2019/08/08/103000/</a></li>
 </ul>
-<h3 id="コード輪読会">コード輪読会</h3>
-<p>上の資料を作るため、Node.jsのコードを読み合わせた。<br>特にEventループ理解のためにlibuv/v8などをコミッターの方の解説の下で理解できたのは最大の財産となった。<br>その後も第二回講習会で通信・暗号周りを取り上げるため、TLS通信・HTTP2・暗号化などの基礎技術をNode.jsの実装ベースで学んだ。この知識は広く業務で活かすことができ、エンジニアとして最も成長できた期間だった。</p>
+<h3 id="nodejs本体prdocs改善、コード輪読会">Node.js本体PR/docs改善、コード輪読会</h3>
+<p>コミッターの指導の下、Node.jsのコードを読み合わせた。<br>特にEventループ(libuv/v8)・通信と暗号化・HTTP2などの基礎技術をNode.jsの実装ベースで学べたことは財産であり、エンジニアとして最も成長できた期間だった。</p>
 <p><a href="https://techblog.yahoo.co.jp/entry/2020072830014370/">https://techblog.yahoo.co.jp/entry/2020072830014370/</a></p>
+<p>読み合わせの中で判明した公式docsや本体実装へのPR、<a href="https://github.com/darai0512/node-class-diagram">クラス図作成</a>なども行なった。</p>
 <div class="page-break"></div>
 
 <h1 id="職歴-dmp（データマネジメントプラットフォーム）設計・開発">職歴: DMP（データマネジメントプラットフォーム）設計・開発</h1>
 <h2 id="所属と期間-1">所属と期間</h2>
-<p>大手広告配信会社（自社メディアもあり）の正社員として、2016年〜2019年の退職まで担当</p>
+<p>大手広告配信会社（自社メディアもあり）の正社員</p>
+<h2 id="期間-2">期間</h2>
+<p>2016 ~ 2018/12</p>
 <h2 id="課題">課題</h2>
 <p>ターゲティング広告販売において、競合他社のデータ利活用が盛んになる中、自社営業や代理店が広告主への提案力を高められるBIツールを作りたい。</p>
-<p>大量のデータ（メディアへのアクセスログ1日分でHDFS圧縮して1TB以上、20億PV）があり、それをHadoop管理できているが、「競合他社のユーザーに自社製品を認知させたい。どれくらいリーチしてどういう人たち（デモグラ・普段の行動履歴など）にあたるのか？」と訊かれてその場でMapReduceを繰り返すのは時間がかかりすぎる。<br>また、広告主側のビッグデータと掛け合わせた分析もニーズとしてあった。</p>
+<p>大量のデータ（メディアへのアクセスログ1日分でHDFS圧縮して1TB以上、20億PV）があり、それをHadoop管理できているが、「競合他社のユーザーに自社製品を認知させたい。どれくらいリーチしてどういう人たち（デモグラ・普段の行動履歴など）にあたるのか？」と訊かれてその場でMapReduceを繰り返すのは時間がかかりすぎる。<br>また、広告主側のデータと掛け合わせた分析もニーズとしてあった。</p>
 <h2 id="解決">解決</h2>
 <p>サードパーティデータも連携可能で、数秒で結果を返しリッチに可視化するツールを、Hive+Solr、React+d3で開発した。</p>
 <p>ex,<br>広告主の「自社ユーザーリストA」と、自社データの「競合他社に興味関心がある（検索・BT）ユーザー群B」をB and not Aと掛け合わせたユーザーリストに配信したい。<br>配信前にリーチ数やデモグラ情報が即座にビジュアライズされ、リーチ数を増やしたければデータの期間を伸ばしたり他のセグメントを足す。逆に東京都の女性だけに絞ることもできる。</p>
@@ -385,7 +394,7 @@ code.hljs {
 </li>
 <li>データを機械学習に使う場合、季節変動を考慮するために最低一年間のデータが欲しい。しかしDWH（solrのオンメモリで利用）には長期間は保持しきれず、試行錯誤が必要だった</li>
 <li>HiveはSQLではない<ul>
-<li>クエリの構文解析においてSQL的な直感とは挙動が異なる点があり、事前にコードを読むべきだった。クエリがどうMapReduceに変換されるか想像できないとパフォーマンスへの影響が大きい</li>
+<li>SQL的な認識だとパフォーマンスが出ない点(MapReduceにどう変換されるか意識が必要)がままあった。Hiveのコードを読んで改善した。</li>
 <li>またSQLインジェクションはライブラリで防げるが、独自の計算式からHQLに変換する際には自身でインジェクションに気をつける必要がある。実際リリース後、UIから渡された％の文字列がエスケープできておらず、条件式が緩くなり処理遅延につながった（何十時間経ってもMapReduceが終わらない）</li>
 </ul>
 </li>
@@ -393,8 +402,10 @@ code.hljs {
 <div class="page-break"></div>
 
 <h1 id="職歴-機械学習用メタデータ生成システム刷新">職歴: 機械学習用メタデータ生成システム刷新</h1>
-<h2 id="所属と期間-2">所属と期間</h2>
-<p>大手広告配信会社（自社メディアもあり）の正社員の入社初仕事として、2013年末〜2015年。保守運用は退職まで担当</p>
+<h2 id="所属">所属</h2>
+<p>大手広告配信会社（自社メディアもあり）の正社員</p>
+<h2 id="期間-3">期間</h2>
+<p>2013/09 ~</p>
 <h2 id="背景">背景</h2>
 <p>自分の所属するチーム5人で、年10億以上売り上げる行動ターゲティング（以下BT）広告のユーザーリストを作っていた。<br>Gradient boostingベースの機械学習ロジックで生成するに際して、学習に使うデータにメタデータを付与して精度を上げていた。<br>そのメタデータは他部署で人力で行っていたが、レガシーで運用も非効率だったため、ツールや運用方法を刷新した。</p>
 <h2 id="役割と開発物">役割と開発物</h2>

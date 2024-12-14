@@ -12,6 +12,18 @@ createSecureServer(await ephemeral()).on('stream', (stream, headers) => {
     p = '/index.html'
   }
   const localPath = path.resolve(import.meta.dirname, `.${p}`)
+  stream.respond({
+    'content-type': 'text/html; charset=utf-8',
+    ':status': 200,
+  });
+  stream.end(`
+    <html>
+<head>
+<body>
+
+<div class="credit-layout "><div class="credit-info"><div class="credit-name">TEST</div></div><div class="payjp"><div class="payjp-button"></div></div><script type="text/javascript" src="https://checkout.pay.jp/prerelease" class="payjp-button" data-payjp-partial="true" data-payjp-extra-attribute-phone="#telHtml" data-payjp-key="pk_live_404e8708a69e75336c507f7d" data-payjp-three-d-secure="true" data-payjp-three-d-secure-workflow="subwindow">
+</script></div>`)
+    /*
   stat(localPath, (err, stat) => {
     if (err) {
       stream.respond({ ':status': 404 })
@@ -20,4 +32,5 @@ createSecureServer(await ephemeral()).on('stream', (stream, headers) => {
     }
     stream.respondWithFile(localPath)
   })
+  */
 }).listen(3000);
