@@ -7,27 +7,48 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 <style>
-code {
-  color: #24292e;
-  background: #ffffff
-}
-</style>
-<style>
 body { background-color: rgba(255 255 255 / 0.8); }
 .markdown-body { margin: 8px; }
 .markdown-body thead { display: none; }
 .page-break { page-break-after: always; }
 .markdown-body pre > code { white-space: pre-wrap; }
+.markdown-body h1 { font-size: 24px;}
 .markdown-body h1::before { content: '# ';}
-.markdown-body h2::before { content: '## ';}
 .markdown-body .timeline { margin-bottom: 6px; margin-top: 14px; }
 .markdown-body ul {list-style: disc;}
-.markdown-body hr {margin: 8px 0;}
 </style></head>
 <body class="markdown-body">
-<h1 id="experience">Experience</h1>
+<section class="antialiased">
+    <div class="max-w-screen-xl px-2 py-1 mx-auto">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
+Daiki Arai
+            </h2>
+            <div class="grid grid-cols-3">
+                <div class="grid col-span-3">
+Address
+                </div>
+                <div>
+Mobile: +81 XXXX
+                </div>
+                <div>
+E-mail: darai0512@yahoo.co.jp
+                </div>
+                <div>
+<a href="https://darai0512.github.io/darai0512/">HomePage</a>
+                </div>
+                <div class="grid col-span-3">
+Summary: As a Software Engineer, I developed and supported any scale services from infrastructure to FE
+in various companyies (from venture to big tech).
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h1 id="experience">Work Experience</h1>
 <p>Overview only. In details of the problems & solutions, <a href="https://darai0512.github.io/darai0512/resume.ja.pdf">see here(Japanese)</a>.</p>
-<ol class="ml-8 mr-1 relative border-s border-gray-400">
+<ol class="ml-6 mr-1 relative border-s border-gray-400">
   <li class="mb-6 ms-3">
     <span class="absolute flex items-center justify-center w-6 h-6 bg-white rounded-full -start-3 ring-8 ring-white">
       <img src="./img/kotoba.jpg"/>
@@ -54,8 +75,8 @@ Senior Engineer @ <a href="https://pay.jp/">Pay, inc</a>
 2018/12 ~ 2024/12 : Full-time
     </time>
     <div class="my-1 text-base font-normal text-gray-500 dark:text-gray-400">
-Worked at a online payment provider like Stripe. Developed PCI-DSS compliant APIs (based on python) and SDKs (any major languages).
-During my tenure, this start-up was listed on the stock market.
+Worked at an online payment provider like Stripe. Developed PCI-DSS compliant APIs (python) and SDKs.
+(During my tenure, this was listed on the stock market.)
     <div class="my-1 text-base font-normal text-gray-500">
         <h4 class="timeline">
 ・Platform Service Renewal
@@ -68,7 +89,6 @@ Replaced old platform service to new one: renewed account tree, data structure.<
 Met 2 types' needs (marketplace(BtoBtoB) & payouts(BtoBtoC)) and Increased number of new platformers by more than 10 times.
         </div>
     </div>
-<hr class="w-[90%]" />
 <div class="my-1 text-base font-normal text-gray-500">
     <h4 class="timeline">
 ・JS SDK Renewal
@@ -77,7 +97,7 @@ Met 2 types' needs (marketplace(BtoBtoB) & payouts(BtoBtoC)) and Increased numbe
 2019/11 ~ 2020/03
     </time>
     <div>
-Developed a <a href="https://pay.jp/docs/payjs">latest PCI-DSS compliant iframe-type e-commerce JS SDK</a>
+Developed a <a href="https://pay.jp/docs/payjs">latest PCI-DSS compliant iframe-type card from as JS SDK</a>
 and <a href="https://pay.jp/docs/checkout">Checkout</a> by Stripe.js reverse engineering.
     </div>
     <div>
@@ -95,7 +115,6 @@ Implemented 3D Secure.
 </ul>
     </div>
 </div>
-<hr class="w-[90%]" />
 <div class="my-1 text-base font-normal text-gray-500">
         <h4 class="timeline">
 ・Automation of Chargebacks (Fraud)
@@ -104,14 +123,10 @@ Implemented 3D Secure.
 2020/03 ~ 2020/10
         </time>
     <div>
-Created dispute UI / API in coordination with upstream stakeholders and reduced invoice process by
-offsetting merchant's balances.
-    </div>
-    <div>
-And then changed manually process by back-office members & merchants into automatic flow.
+Created dispute UI / API in coordination with upstream stakeholders to eliminate all manual process
+and reduced invoice by offsetting merchant balances automatically.
     <div>
 </div>
-<hr class="w-[90%]" />
 <div class="my-1 text-base font-normal text-gray-500">
     <h4 class="timeline">
 ・Apple Pay
@@ -125,7 +140,6 @@ because they were too old their version one to support latest OS & PCI-DSS.
 Followed them in the latest version by adding original X509Extension oid/PKCS7/ECDH derivation logic.
     </div>
 </div>
-<hr class="w-[90%]" />
 <div class="my-1 text-base font-normal text-gray-500">
     <h4 class="timeline">
 ・Maintaining all OSS SDKs
@@ -144,14 +158,13 @@ for the following SDKs as a full maintainer.
 <a href="https://github.com/payjp/payjp-flutter-plugin">flutter</a> with a mobile expert.
     </li>
     <li>
-<a href="https://github.com/payjp/payjp-go">Go</a> / <a href="https://github.com/payjp/payjp-node">Node.js(Typescript)</a> /
+<a href="https://github.com/payjp/payjp-go">Go</a> / <a href="https://github.com/payjp/payjp-node">Node.js(TS)</a> /
 <a href="https://github.com/payjp/payjp-php">PHP</a> / <a href="https://github.com/payjp/payjp-perl">Perl</a> /
 <a href="https://github.com/payjp/payjp-java">Java</a> / <a href="https://github.com/payjp/payjp-ruby">Ruby</a> /
-<a href="https://github.com/payjp/payjp-python">Python</a> and <a href="https://github.com/darai0512/payjp-rust-with-openapi">Rust</a> (my original, unofficial)
+<a href="https://github.com/payjp/payjp-python">Python</a> & <a href="https://github.com/darai0512/payjp-rust-with-openapi">Rust</a> (unofficial, mine)
     </li>
     </ul>
 </div>
-<hr class="w-[90%]" />
 <div class="my-1 text-base font-normal text-gray-500">
         <h4 class="timeline">
 ・ Multi-Account Support (like IAM) + Vue.js 2 EOL Support + revamped UI
@@ -167,7 +180,7 @@ Improved merchants' dashboard while simultaneously fulfilling the following feat
 Added member account object to chanrge 1 account to multi one as a merchant, and then created roles and permissions like IAM.
             </li>
             <li>
-Migrated from Vue.js 2 to 3 due to EOL (<a href="">with minimum diff</a>).
+Migrated from Vue.js 2 to 3 due to EOL. The diff was minimized by ingenuity.
             </li>
             <li>
 Redesigned merchants' dashboard adding the operating history feature for latest PCI-DSS reuqirements
@@ -175,7 +188,6 @@ with a designer via Figma.
             </li>
         </ol>
     </div>
-<hr class="w-[90%]" />
     <div class="text-base font-normal text-gray-500">
         <h4 class="timeline">
 ・Containerization
@@ -222,7 +234,7 @@ Co-founder & Senior Engineer @ <a href="https://nztk.jp/">Nizitsuku</a>
           with two university student engineers just 1.5 month.
           <ul>
               <li>
-                  Implemented a CI/CD pipeline, integrated Trello and GitLab with Slack, and rapidly developed; multi-media uploads, PayPal integration, search engine, and login auth.
+Implemented CI/CD pipeline, integrated Trello/GitLab with Slack, and rapidly developed; multiple media, PayPal integration, search engine and auth.
               </li>
               <li>
 FE: GraphQL, Nuxt.js  +
@@ -231,7 +243,6 @@ BE: gRPC microservices(media processing, storage, dispather) by Golang
           </ul>
       </div>
   </li>
-<div class="page-break"></div>
   <li class="ms-3">
     <span class="absolute flex items-center bg-white justify-center w-6 h-6 rounded-full -start-3 ring-8 ring-white">
       <img src="./img/yahoo_japan_icon_256.png"/>
@@ -254,16 +265,15 @@ Supported/trained internal Node.js developers (recommended language in Yahoo! Ja
         </div>
         <ul>
             <li>
-<code>User training sessions</code>: 4 core foundational technologies of Node.js; Modules, Buffer, Events and Stream.
-(3 hours × 4 sessions, 20 participants per session)<br/>
-Due to over-registrations and positive feedback from post-session surveys, we organize recurring sessions and new seminar;
-Net, TLS, Crypto and fs.<br/>
+<code>User training sessions</code>: 4 core foundational technologies of Node.js; Modules, Buffer, Events & Stream.
+Due to positive feedback and requests from questionnaire, organized recurring sessions and new one;
+Net, TLS, Crypto & fs.<br/>
             </li>
             <li>
 <code>Consultations for department-specific issues</code>: performance, scaling in a single-threaded, packet loss and memory leaks after switching from PHP, ...etc
             </li>
             <li>
-<code>External Public Relations</code>: <a href="https://nodefest.jp/2018/schedule.html#conference-2-3">Nodefest 2018 session speaker</a>, tech blog & external interview, ...etc
+<code>External</code>: <a href="https://nodefest.jp/2018/schedule.html#conference-2-3">Nodefest 2018 session speaker</a>, tech blog & interviews.
             </li>
             <li>
 <code>PRs for Node.js</code>: <a href="https://github.com/nodejs/node/pulls?q=is%3Apr+is%3Aclosed+author%3Adarai0512">upgraded documents/code</a>
@@ -271,7 +281,6 @@ and <a href="https://github.com/nodejs/node/pull/11646">fixed bugs</a>
             </li>
         </ul>
     </div>
-    <hr class="w-[90%]" />
     <div class="my-1 text-base font-normal text-gray-500">
       <h4 class="timeline">
 ・DMP (Data Management Platform)
@@ -285,7 +294,7 @@ Team size is 30~ engineers & managers.
       </div>
       <ul>
           <li>
-Designed micro-service architecture (like Saga-pattern) of all 9 BE components; Node.js, aglio/drakov
+Designed micro-service architecture (Saga-pattern) of all 9 components (Node.js)
           </li>
           <li>
 Developed BE that could concatenate YJ big-data with third-party(advertiser) data and return user-list count
@@ -296,7 +305,6 @@ For component integration between UI and BE, I created original syntax similar t
           </li>
       </ul>
     </div>
-    <hr class="w-[90%]" />
     <div class="my-1 text-base font-normal text-gray-500">
       <h4 class="timeline">
 ・BT (behavioral targeting) advertising
@@ -320,42 +328,45 @@ TB~ daily accesslog as HDFS compression), Gradient boosting model logic, BE/UI (
     </div>
   </li>
 </ol>
+
 <div class="page-break"></div>
 
+<h1 id="education">Education</h1>
+<p>Radio Astronomy of Physics, KEIO University, Tokyo (2012)</p>
+
+<h1 id="qualification">Qualifications</h1>
+<ul>
+    <li>
+        Certified Scrum Developer (2018)
+    </li>
+</ul>
 <h1 id="private-outputs">Private Outputs</h1>
-<h2 id="web-games">Web Games</h2>
+<p>My HomePage is: <a href="https://darai0512.github.io/darai0512/">https://darai0512.github.io/darai0512/</a></p>
+<h3>Work Product</h3>
 <ul>
 <li><a href="https://air-poker.vercel.app/">AirPoker</a>: A game from a Japanese manga. <a href="https://github.com/darai0512/air-poker">Next.js + WebRTC + MongoDB</a></li>
 <li><a href="https://to-court-the-king-js.vercel.app/">To Court the King</a>: A famous board game. <a href="https://github.com/darai0512/to-court-the-king.js">Next.js + WebRTC</a></li>
 <li><a href="https://github.com/slack-codegolf">Slack CodeGolf</a>: Node.js + WebSocket + Heroku</li>
-</ul>
-<h2 id="oss-contributions">OSS Contributions</h2>
-<ul>
-<li>Node.js: <a href="https://github.com/nodejs/node/pull/11646">timers</a> and <a href="https://github.com/nodejs/node/pulls?q=is%3Apr+is%3Aclosed+author%3Adarai0512">hidden class optimizations, documentation, etc.</a></li>
-<li>AI: First release contributions to TextToSpeech <a href="https://github.com/litagin02/Style-Bert-VITS2">Style-Bert-VITS2</a>, <a href="https://github.com/thuhcsi/NeuCoSVC">Singing Synthesis NeuCoSVC</a>, <a href="https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1">kotoba-whisper HF pipeline</a></li>
-<li>and more...</li>
-</ul>
-<h2 id="side-jobs">Side Jobs</h2>
-<ul>
-<li><a href="https://www.kakekomu.com/">Kakekomu (ST Booking)</a>: Assisted for about a month (Adding Notification, JWT encryption, unit test ...etc).</li>
-<li><a href="https://meetsmore.com/">Meetsmore</a>: Assisted for about a month (Making ETL system from MongoDB to BigQuery with table/partition design by Digdag)</li>
-<li>Smoothy: A side business with a Googler (sales). A reservation service for restaurants (React Native, service closed)</li>
-</ul>
-<h2 id="others">Others</h2>
-<ul>
-<li>Conference speeches: <a href="https://github.com/darai0512/talks/blob/master/README.md">https://github.com/darai0512/talks/blob/master/README.md</a></li>
-<li>Sales/Distributions:<ul>
-<li>screen animation on OBS for Twitch streaming (js + WebSocket + css)</li>
-<li>VR accessories created with Blender, AI models(RVC, SD LoRA)</li>
-</ul>
-</li>
+<li>Sales: OBS extension for Twitch streaming (js,WebSocket,css), VR accessories by Blender, AI models(RVC, SD LoRA)</li>
 <li>Hackathons:<ul>
 <li>Domestic: Got the patent (an alarm game on iOS)</li>
 <li>Taiwan: Participated twice with Taiwanese developers</li>
 </ul>
 </li>
-<li>Qualifications: Certified Scrum Developer (CSD)</li>
 </ul>
+<h3>OSS Contributions</h3>
+<ul>
+<li>Node.js: <a href="https://github.com/nodejs/node/pull/11646">timers</a> and <a href="https://github.com/nodejs/node/pulls?q=is%3Apr+is%3Aclosed+author%3Adarai0512">hidden class optimizations, documentation, etc.</a></li>
+<li>AI: First release contributions to TextToSpeech <a href="https://github.com/litagin02/Style-Bert-VITS2">Style-Bert-VITS2</a>, <a href="https://github.com/thuhcsi/NeuCoSVC">Singing Synthesis NeuCoSVC</a>, <a href="https://huggingface.co/kotoba-tech/kotoba-whisper-v2.2/discussions/1">kotoba-whisper HF pipeline</a></li>
+</ul>
+<h3>Side-Job Experiences</h3>
+<ul>
+<li><a href="https://www.kakekomu.com/">Kakekomu (ST Booking)</a>: Assisted for about a month (Adding Notification, JWT encryption, unit test ...etc).</li>
+<li><a href="https://meetsmore.com/">Meetsmore</a>: Assisted for about a month (Making ETL system from MongoDB to BigQuery with table/partition design by Digdag)</li>
+<li>Smoothy: A side business with a Googler (sales). A reservation service for restaurants (React Native, service closed)</li>
+</ul>
+<h3>Conference Speeches</h3>
+<a href="https://github.com/darai0512/talks/blob/master/README.md">https://github.com/darai0512/talks/blob/master/README.md</a>
 
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </body></html>
