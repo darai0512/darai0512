@@ -20,7 +20,6 @@ css: |-
 
 - [AirPoker](https://air-poker.vercel.app/): 某漫画内ゲーム。[Next.js + WebRTC + MongoDB](https://github.com/darai0512/air-poker)
 - [王への請願](https://to-court-the-king-js.vercel.app/): 有名ボドゲ。[Next.js + WebRTC](https://github.com/darai0512/to-court-the-king.js)
-  - いずれもWebRTCの勉強目的であり、現状ではWebSocketやgRPCを使うべきと認識済
 - [Slack CodeGolf](https://github.com/slack-codegolf): Node.js + websocket on heroku
 
 ## OSS貢献
@@ -33,20 +32,64 @@ css: |-
 
 - [Kakekomu (ST Booking)](https://www.kakekomu.com/): CTO(後輩)お誘いで1ヶ月手伝い、質問回答通知機能・jwt暗号化・テスト拡充など
 - [Meetsmore](https://meetsmore.com/): CTO(同期)お誘いで1ヶ月手伝い。MongoDBのアプリデータをBigqueryへ(table/partition設計・Digdagバッチ・コンテナ化)
-- Smoothy: Googleの営業の方と組んで。飲食店などの予約サービス(ReactNative+Liff(Line App),サ終)
-- [Kotoba Technologies](https://www.kotoba.tech/): Transformer Modelプロダクト開発のお手伝い中
+- Smoothy: 飲食店などの予約サービス(ReactNative+Liff(Line App),サ終)
 
 ## その他
 
-- 登壇歴: https://github.com/darai0512/talks/blob/master/README.md
-- 販売・配布
-  - twitch配信コメントのOBS画面反映アニメーション（js+websocket+css）
-  - VR用小物 by Blender/RVCモデル/VITSモデル/画像lora: booth販売
+- 登壇歴:
+  - [React Native Meetup #21 20250416](https://react-native-meetup.connpass.com/event/341885/): [Slides](https://darai0512.github.io/darai0512/rn21.html#/)
+  - [NodeFest(学園祭) 2018 Session](https://nodefest.jp/2018/schedule.html#conference-2-3): [Slides](https://darai0512.github.io/nodefest2018/#/)
+  - [Meguro.es#17](https://darai0512.github.io/talks/meguroes_20181004/),[Gotanda.js#9](https://darai0512.github.io/talks/gotandajs_20171006/),[Node学園#25](https://darai0512.github.io/talks/nodeschool_20170424/), etc...
 - ハッカソン
   - 国内: 目覚ましゲーム(iOS)で特許出願
-  - 台湾ハッカソン: 2度参加。英語プレゼン。現地エンジニアとは今も交流あります
+  - 台湾ハッカソン: 2度参加。英語プレゼン。現地エンジニアとの交流が今なお財産
 - leetcode: See gist
+- 配布: OBS twitch/YT Live コメント画面反映(js+websocket+css), VR by Blender, RVC model, SD lora
 - 資格: 認定スクラムデベロッパー(csd)
+
+<div class="page-break"></div>
+
+# 職歴: 独自音声AI(s2t/s2s)による同時通訳システム開発
+## 概要
+
+業務委託を経て1桁社員番号の正社員として、政府支援も受けるAIモデル開発スタートアップのプロダクト開発全般の責任を担う。
+
+AIリサーチャーのみの会社で初めてのプロダクトエンジニアとして、iOSアプリやAPI、s2sデモを1ヶ月スパンで開発・リリースし、
+数十億の資金調達に貢献。
+
+## 会社・チームの規模
+
+プロダクトエンジニアは自分1人（他は社長含め20代のAIリサーチャー8人）
+
+## 役割
+
+コードも書けるリサーチャー1名に開発ノウハウを授けつつ、2人でfigmaからterraformまで
+
+## 期間
+
+2025/01 - now (2024/11 - 2024/12 は副業の業務委託契約で本業と掛け持ち)
+
+## 成果サマリー
+
+Note. OpenAI WhisperやGoogleのAI APIなどは一切利用してません。
+
+学習に大量のGPUを使って独自モデルを作り、マネタイズできるinferコストに抑えるためにモデルを工夫（cudaにも手を入れたり）しクオンタイズしたシステムです。
+
+- 2024/11 twilio media stream(websocket)で電話音声をstream取得し、AIで音声を多言語へ変換して別の電話番号へstreamする同時翻訳通話を3日ほどで開発。試用稼働中。
+  - Next.js vercel + python(GPU/音声処理) runpod by skypilot
+- 2025/1 リアルタイム翻訳iOSアプリを数日で開発。社内検証を経て2月末リリース。
+  - ReactNative + figma MCP + swift + python(API)/ Redis PubSub AWS by terraform + python(GPU) runpod by skypilot 
+  - https://darai0512.github.io/darai0512/rn21.html
+- 2025/3 上記デスクトップ版（限定配布）
+  - tauri v2 + swift Audio Tap API(screencapturekit APIの上位互換) / windows core API
+  - Youtube音声などをVirtualCableなど使わず直接取得するためwin/macともにcore audio APIを利用
+- 2025/4~ 文字起こし・リアルタイム翻訳のAPIを1.5ヶ月で開発。一部企業で導入中・限定ベータ公開中。
+  - Next.js / figma MCP with storybook / stripe MCP (Dashboard) + python(API)  + python(GPU) azure kubernetes(with helm) by terraform, OpenAPI + Docusaurusでdocs生成
+- 2025/4~ オフライン推論モデル（限定配布）
+  - flutter + swiftを試したが、ReactNativeでも音声を効率的に扱うためにcore API実装が必要でほぼswift。
+- 2025/4~ 同時翻訳Speak to Speak + ボイスクローニング（社内検証中）
+  - 音声チャンク結合時にぷつぷつ音とならないようcore audio APIのコードを工夫
+- 2025/4~ 文字起こし・リアルタイム翻訳のWebRTC対応
 
 <div class="page-break"></div>
 
