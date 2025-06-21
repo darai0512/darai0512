@@ -4,11 +4,11 @@
 
 |(index)|Values|
 |---|---|
-|locale| `LANG="ja_JP.UTF-8"` @Tokyo|
-|whoami| Full-Stack Engineer|
-||<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=darai0512&theme=dark&layout=compact" alt="anuraghazra/github-readme-stats" height="150px"/><img src="https://github-readme-stats.vercel.app/api?username=darai0512&count_private=true&show_icons=true&theme=dark" height="150px"/>|
-|bg|`EDUCATION="KO univ. Physics (電波天文)"`|
+|locale| `LC_ALL="ja_JP.Tokyo"` |
+|whoami| :computer: Full-Stack :arrow_left: `KO univ. Physics:電波天文`|
 |sendmail|darai0512 :at: yahoo.co.jp|
+|calendar|[Hold my schedule on JST daytime](https://calendar.google.com/calendar/u/0?cid=ZGFyYWkwNTEyQHlhaG9vLmNvLmpw)|
+|git log|<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=darai0512&theme=dark&layout=compact" alt="anuraghazra/github-readme-stats" height="150px"/><img src="https://github-readme-stats.vercel.app/api?username=darai0512&count_private=true&show_icons=true&theme=dark" height="150px"/>|
 |history|[ :arrow_right: My Outputs & Work Experiences](https://darai0512.github.io/darai0512/#/1)|
 
 <a href="https://mobile.twitter.com/darai_0512" target="_blank"><img src="./img/Twitter_Social_Icon_Square_Color.png" width="80" height="80"/></a>
