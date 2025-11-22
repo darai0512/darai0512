@@ -1,6 +1,8 @@
-<!-- .slide: data-background="img/profile.jpeg""-->
+<!-- .slide: data-background="img/profile.jpeg"-->
 <!-- .slide: data-background-opacity="0.6"-->
 :laughing: console.table(**darai**) :speech_balloon:
+
+<!-- server down counter.seku.su/cmoe although https://counter.seku.su/ is alive.  thx @fumiama --><!-- img src="https://counter.seku.su/cmoe?name=darai0512&theme=gb" alt="darai0512" width="150px"/ --> 
 
 |(index)|Values|
 |---|---|
@@ -13,6 +15,6 @@
 
 <a href="https://mobile.twitter.com/darai_0512" target="_blank"><img src="./img/Twitter_Social_Icon_Square_Color.png" width="80" height="80"/></a>
 <a href="https://github.com/darai0512" target="_blank"><img src="./img/GitHub-Mark-120px-plus.png" width="80" height="80"/></a>
-<img src="https://counter.seku.su/cmoe?name=darai0512&theme=gb" alt="darai0512" width="150px"/>
+<img src="https://count.getloli.com/@daraiii?name=daraiii&theme=capoo-2&padding=6&offset=0&align=center&scale=1&pixelated=0&darkmode=auto" alt="daraiii" width="240px"/>
 <a href="https://qiita.com/darai0512" target="_blank"><img src="./img/qiita-favicon.png" width="80" height="80"/></a>
 <a href="https://speakerdeck.com/darai0512" target="_blank"><img src="./img/speaker-deck.ico" width="128" height="80"/></a>
