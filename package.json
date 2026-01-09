@@ -7,9 +7,9 @@
   },
   "dependencies": {
     "emoji-awesome": "0.0.2",
-    "reveal.js": "^3.7.0",
     "md-to-pdf": "^5.2.4",
-    "tls-keygen": "latest"
+    "reveal.js": "^3.7.0",
+    "tls-keygen": "^3.7.0"
   },
   "engines": {
     "node": ">=22.0.0"
