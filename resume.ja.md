@@ -14,6 +14,8 @@ css: |-
   .markdown-body h3::before { content: '### ';}
 ---
 
+<base target="_blank">
+
 # Private Outputs
 
 ## Webゲーム開発
@@ -40,8 +42,8 @@ css: |-
   - [React Native Meetup #21 20250416](https://react-native-meetup.connpass.com/event/341885/): [Slides](https://darai0512.github.io/darai0512/rn21.html#/)
   - [NodeFest(学園祭) 2018 Session](https://nodefest.jp/2018/schedule.html#conference-2-3): [Slides](https://darai0512.github.io/nodefest2018/#/)
   - [Meguro.es#17](https://darai0512.github.io/talks/meguroes_20181004/),[Gotanda.js#9](https://darai0512.github.io/talks/gotandajs_20171006/),[Node学園#25](https://darai0512.github.io/talks/nodeschool_20170424/), etc...
-- ハッカソン: YJ全社, Isucon, hardening, 台湾hack(English), [VIBE25-5: Welcome to San Fransokyo](https://luma.com/whkm8jf2?tk=3bxbrL)(English)
 - 特許: [ユーザーを効果的に目覚めさせることができる情報処理装置](https://www.j-platpat.inpit.go.jp/c1801/PU/JP-2018-013387/11/ja)
+- ハッカソン: YJ全社, Isucon, hardening, 台湾hackathon(English), [VIBE25-5: Welcome to San Fransokyo](https://luma.com/whkm8jf2?tk=3bxbrL)(English)
 - leetcode: See gist
 - 配布: OBS twitch/YT Live コメント画面反映(js+websocket+css), VR by Blender, RVC model, SD lora
 - 資格: 認定スクラムデベロッパー(csd)
@@ -420,12 +422,6 @@ B. MapReduceで行動ログとAの辞書をlookupさせ、ルールベースの�
   - 高速化・リソース削減のために従来のHadoop処理からHive(OnTez)へ移行
   - oozie coordinatorのrerun機能が運用時に重宝するため、Hiveコマンドもoozieで起動させる実装
   - HDFSへのアップロード処理・HDFSからs3への転送処理をREST APIであるHttpFSコマンドで実装
-
-
-
-
-
-
 
 
 
