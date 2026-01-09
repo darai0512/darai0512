@@ -3,7 +3,7 @@
   "scripts": {
     "start": "uv run -m http.server 3000  # http://localhost:3000/",
     "start:https": "node ./server.js  # https://localhost:3000/",
-    "build": "md-to-pdf resume.ja.md && md-to-pdf resume.ja.md --as-html"
+    "build:ja": "md-to-pdf resume.ja.md && md-to-pdf resume.ja.md --as-html"
   },
   "dependencies": {
     "emoji-awesome": "0.0.2",
